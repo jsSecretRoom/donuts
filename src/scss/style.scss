@@ -1,0 +1,608 @@
+@font-face {
+    font-family: 'Kavoon';
+    src: url('../fonts/Kavoon-Regular.ttf') format('truetype');
+}
+
+body{
+    background: url("../img/bacground/background1.svg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Kavoon';
+    .continer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .content-continer{
+            border-left: 5px solid black;
+            border-right: 5px solid black;
+            header{
+                height: 230px;
+                width: 1440px;
+                background: linear-gradient(to bottom, #541111, #541149);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                nav{
+                    display: flex;
+                    flex-direction: column;
+                    animation: fadeInDown 1s ease-in-out;
+                    a{
+                        color: white;
+                        font-size: 40px;
+                        padding: 10px 0;
+                        transition: font-size 0.3s ease;
+                        &:hover{
+                            color: rgb(52, 85, 255); 
+                            font-size: 44px;
+                        }
+                    }
+                    
+                    @keyframes fadeInDown {
+                        0% {
+                            transform: translateY(-20px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translateY(0px);
+                            opacity: 1;
+                        }
+                    }
+                }
+                .logo {
+                    text-align: center;
+                    font-size: 70px;
+                    letter-spacing: 4px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    position: relative;
+                    animation: fadeInUp 1s ease-in-out; /* Анимация появления */
+                    color: #f5ff39;
+                    transition: font-size 0.3s ease;
+                    &:hover{
+                        color: rgb(98, 3, 221);
+                        font-size: 75px;
+                    }
+                    p{
+                        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+                        position: relative;
+                        animation: glow 2s ease-in-out infinite;
+                        cursor: pointer;
+                    }
+                    
+                    @keyframes fadeInUp {
+                        0% {
+                            transform: translateY(20px);
+                            opacity: 0;
+                        }
+                        100% {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            main{
+                width: 1440px;
+                .animations {
+                    position: relative;
+                    .order-block{
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 1;
+                        a{
+                            
+                            font-size: 100px;
+                            color: white;
+                            -webkit-text-stroke: 2px #000000;
+                            transform: scale(0);
+                            opacity: 0;
+                            animation: scaleIn 3s forwards;
+                            transition: font-size 0.3s ease;
+                            &:hover{
+                                color: rgb(52, 85, 255); 
+                                font-size: 110px;
+                            }
+                            @keyframes scaleIn {
+                                to {
+                                  transform: scale(1);
+                                  opacity: 1;
+                                }
+                            }  
+                        }
+                    }
+                    .qr{
+                        
+                        position: absolute;
+                        right: 30px;
+                        bottom: 30px;
+                        img{
+                            width: 100px;
+                            height: 100px;
+                        }
+                    }
+                    .rotate-wrapper{
+                        overflow: hidden;
+                        width: 100%;
+                        height: 510px;
+                        background-color: #541146;
+                        .rotait{
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+                            height: 100%;
+                            transform: rotate(45deg) translate(-100px, -1110px);
+                            transform-origin: top left;
+                            .image-slider {
+                                width: calc(100% / 4 + 70px);
+                                height: 100vw;
+                                animation: moveSliderDown linear infinite 60s;
+                                @keyframes moveSliderDown {
+                                    0% { transform: translateY(0); }
+                                    100% { transform: translateY(100%); }
+                                }
+                                .image-container {
+                                    display: flex;
+                                    flex-direction: column;
+                                    animation: movePhotos linear infinite 60s;
+                                    @keyframes movePhotos {
+                                        0% { transform: translateY(0); }
+                                        100% { transform: translateY(-100%); }
+                                    }
+                                    img{
+                                        height: auto;
+                                        border-radius: 10px;
+                                        margin: 3px;
+                                    }
+                                }
+                                
+                            }
+                            
+                        }
+                    }
+                }
+                
+                .donuts-shop{
+                    
+                    .search-panel{
+                        background: linear-gradient(to bottom, #541149, #541111);
+                        width: 100%;
+                        height: 70px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        border-bottom: 2px solid white;
+                        .search-buttons {
+                            display: flex;
+                            column-gap: 30px;
+                            .main, .bag, .favorites {
+                                background-color: white;
+                                border-radius: 50px;
+                                &:hover{
+                                    background-color: rgb(0, 87, 209);
+                                }
+                                img{
+                                    height: 50px;
+                                    width: 50px;
+                                }
+                            }
+                            
+                        }
+                        .search-line {
+                            display: flex;
+                            column-gap: 10px;
+                            
+                            input{
+                                color: #541111;
+                                border-radius: 50px;
+                                font-size: 20px;
+                                padding: 5px 10px;
+                                width: 450px;
+                                background-color: #E3A44F;
+                                &::placeholder{
+                                    color: white;
+                                }
+                            }
+                            .find {
+                                color: #541111;
+                                width: 100px;
+                                background-color: #83BECC;
+                                border-radius: 50px;
+                                font-size: 20px;
+                                &:hover{
+                                    background-color: rgb(0, 87, 209);
+                                }
+                            }
+                        }
+                        
+                        
+                    }
+                    .adaptiv-lay{
+                        .donuts-categories {
+                            background-color: #541111;
+                            height: 120px;
+                            .categories {
+                                display: flex;
+                                justify-content: space-around;
+                                ul{
+                                    li{
+                                        padding: 20px 0;
+                                        color: white;
+                                        font-size: 22px;
+                                        text-shadow: -0.5px 1px 0px #cb8204;
+                                        transition: font-size 0.3s ease;
+                                        &:hover{
+                                            color: rgb(52, 85, 255); 
+                                            font-size: 25px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .goods-sliders{
+                            background-color: #DBABAB;
+                            .wraper-conteiner {
+                                overflow-x: hidden;
+                                .wraper {
+                                    position: relative;
+                                    
+                                    .left, .right {
+                                        position: absolute;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                        background: none;
+                                        border: none;
+                                        cursor: pointer;
+                                        z-index: 1;
+                                        img {
+                                            width: 40px;
+                                            @media (min-width: 568px) {
+                                                width: 50px;
+                                            }
+                                            @media (min-width: 1024px) {
+                                                width: 120px;
+                                            }
+                                        }
+                                    }
+                                    .right {
+                                        right: 20px;
+                                    }
+                                    
+                                    .left {
+                                        left: 20px;
+                                    }
+                                    .carousel {
+                                        display: flex;
+                                        
+                                        .slid {
+                                            flex: 0 0 auto;
+                                            height: 100%;
+                                            object-fit: cover;
+                                            user-select: none;
+                                            display: flex;
+                                            width: calc(100% / 4);
+                                            
+                                            
+                                            .cards-conteiner{
+                                                margin: 10px;
+                                                .product-img {
+                                                    width: 350px;
+                                                    height: 600px;
+                                                    img{
+                                                        border-radius: 10px 10px 0 0;
+                                                        width: 350px;
+                                                        height: 600px;
+                                                    }
+                                                    
+                                                }
+                                                .product-info {
+                                                    background-color: #8383FF;
+                                                    border-radius:  0 0 10px 10px;
+                                                    padding: 10px;
+                                                    width: 350px;
+                                                    height: 150px;
+                                                    .description {
+                                                        
+                                                        p{
+                                                            font-size: 20px;
+                                                        }
+                                                        
+                                                    }
+                                                    .price {
+                                                        display: flex;
+                                                        justify-content: space-between;
+                                                        align-items: center;
+                                                        .info {
+                                                            .weight, .calories {
+                                                                color: #541111;
+                                                                font-size: 20px;
+                                                                padding: 5px;
+                                                            }
+                                                        }
+                                                        
+                                                        .price-conteiner{
+                                                            
+                                                            .discount-price {
+                                                                font-size: 35px;
+                                                                color: #f2083b;
+                                                                padding: 5px;
+                                                            }
+                                                            .real-price {
+                                                                font-size: 20px;
+                                                                text-decoration: line-through;
+                                                                text-align: end;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                    .will-call {
+                        display: flex;
+                        justify-content: space-around;
+                        background-color: #541111;
+                        align-items: center;
+                        .order {
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            background: none;
+                            column-gap: 20px;
+                            padding: 10px 0;
+                            
+                            p{
+                                color: white;
+                                font-size: 60px;
+                                &:hover{
+                                    color: rgb(11, 255, 80);
+                                }
+                            }
+                            .bag-img{
+                                background: white;
+                                border-radius: 50px;
+                                img{
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        p{
+                            color: white;
+                            font-size: 60px;
+                        }
+                        .call {
+                            display: flex;
+                            align-items: center;
+                            
+                            a{
+                                font-size: 40px;
+                                color: rgb(255, 133, 19);
+                                padding: 0 50px;
+                                &:hover{
+                                    color: rgb(255, 11, 11);
+                                }
+                            }
+                        }
+                    }
+
+                    .create-set {
+                        background-color: #C73C61;
+                        .create {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 0 55px;
+                            .offer {
+                                text-align: center;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                p{
+                                    color: white;
+                                    font-size: 70px;
+                                }
+                            }
+                            .choose-box {
+                                display: flex;
+                                justify-content: space-between;
+                                padding: 0 85px;
+                                button{
+                                    width: 100px;
+                                    height: 150px;
+                                    margin: 10px;
+                                    border-radius: 10px;
+                                    &:hover{
+                                        background-color: #8383FF;
+                                    }
+                                    p{
+                                        font-size: 70px;
+                                    }
+                                }
+                            }
+                        }
+                        .box-continer {
+                            
+                            background-color: #429485;
+                            .box {
+                                width: 100%;
+                                height: 450px;
+                                display: flex;
+                                justify-content: space-between;
+                                .donuts-box {
+                                    position: relative;
+                                    padding: 50px 0 0 50px;
+                                    .body-box {
+                                        width: 600px;
+                                    }
+                                    .box-element {
+                                        position: absolute;
+                                        width: 600px;
+                                        left: 50px;
+                                        bottom: 18px;
+                                        z-index: 1;
+                                    }
+                                }
+                                .bill-box{
+                                    flex-grow: 1;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    button{
+                                        width: 200px;
+                                        height: 100px;
+                                        border-radius: 10px;
+                                        background-color: #dc7610;
+                                        color: white;
+                                        font-size: 40px;
+                                        border: 1px solid black;
+                                    }
+                                    p{
+                                        padding: 10px 0;
+                                        font-size: 50px;
+                                    }
+                                }
+                               
+                            }
+                            
+                            .choose-donuts {
+                                width: 100%;
+                                height: 200px;
+                                background-color: #C73C61;
+
+                                .wraper-conteiner {
+                                    overflow-x: hidden;
+                                    .wraper {
+                                        position: relative;
+                                        
+                                        .left, .right {
+                                            position: absolute;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            background: none;
+                                            border: none;
+                                            cursor: pointer;
+                                            z-index: 1;
+                                            img {
+                                                width: 40px;
+                                                @media (min-width: 568px) {
+                                                    width: 50px;
+                                                }
+                                                @media (min-width: 1024px) {
+                                                    width: 70px;
+                                                }
+                                            }
+                                        }
+                                        .right {
+                                            right: 20px;
+                                        }
+                                        
+                                        .left {
+                                            left: 20px;
+                                        }
+                                        .carousel {
+                                            display: flex;
+                                            .slid {
+                                                flex: 0 0 auto;
+                                                height: 100%;
+                                                object-fit: cover;
+                                                user-select: none;
+                                                display: flex;
+                                                align-items: center;
+                                                width: calc(100% / 7);
+                                                img{
+                                                    margin: 15px 5px 5px 5px;
+                                                    width: 100%;
+                                                    height: 180px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                }
+    
+            }
+            footer{
+                .navigation {
+                    height: 330px;
+                    width: 1440px;
+                    background: linear-gradient(to bottom, #541111, #541149);
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    nav{
+                        display: flex;
+                        flex-direction: column;
+                        animation: fadeInDown 1s ease-in-out;
+                        a{
+                            color: white;
+                            font-size: 40px;
+                            padding: 10px 0;
+                        }
+                        @keyframes fadeInDown {
+                            0% {
+                                transform: translateY(-20px);
+                                opacity: 0;
+                            }
+                            100% {
+                                transform: translateY(0px);
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    .logo {
+                        text-align: center;
+                        font-size: 70px;
+                        letter-spacing: 4px;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        position: relative;
+                        animation: fadeInUp 1s ease-in-out; /* Анимация появления */
+                        color: #f5ff39;
+                        p{
+                            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+                            position: relative;
+                            animation: glow 2s ease-in-out infinite;
+                            cursor: pointer;
+                        }
+                        
+                        @keyframes fadeInUp {
+                            0% {
+                                transform: translateY(20px);
+                                opacity: 0;
+                            }
+                            100% {
+                                transform: translateY(0);
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                
+                .info-conpany {
+                    display: flex;
+                    justify-content: space-around;
+                    background: linear-gradient(to bottom, #541149, #541111);
+                    .column{
+                        p{
+                            color: white;
+                            font-size: 25px;
+                            padding: 10px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

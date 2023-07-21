@@ -198,20 +198,26 @@ body .continer .content-continer main .donuts-shop .search-panel .search-line {
   display: flex;
   -moz-column-gap: 10px;
        column-gap: 10px;
+  position: relative;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-line input {
+body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer input {
   color: #541111;
   border-radius: 50px;
   font-size: 20px;
-  padding: 5px 10px;
-  width: 450px;
+  padding: 10px 10px 10px 50px;
+  width: 750px;
+  min-width: 300px;
   background-color: #E3A44F;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-line input::-moz-placeholder {
+body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer input::-moz-placeholder {
   color: white;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-line input::placeholder {
+body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer input::placeholder {
   color: white;
+}
+body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer .donut-img {
+  position: absolute;
+  left: 0;
 }
 body .continer .content-continer main .donuts-shop .search-panel .search-line .find {
   color: #541111;
@@ -225,22 +231,29 @@ body .continer .content-continer main .donuts-shop .search-panel .search-line .f
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories {
   background-color: #541111;
-  height: 120px;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  height: 130px;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories ul {
+  flex: 1;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories ul li {
-  padding: 20px 0;
+  padding: 10px 10px;
   color: white;
   font-size: 22px;
   text-shadow: -0.5px 1px 0px #cb8204;
   transition: font-size 0.3s ease;
+  text-align: center;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories ul li:hover {
   color: rgb(52, 85, 255);
-  font-size: 25px;
+  font-size: 30px;
+  border: 1px solid #DBABAB;
+  border-radius: 50px;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders {
   background-color: #DBABAB;
@@ -299,11 +312,46 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img {
   width: 350px;
   height: 600px;
+  position: relative;
 }
-body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img img {
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .product-foto {
   border-radius: 10px 10px 0 0;
   width: 350px;
   height: 600px;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .bascer-button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .bascer-button .ad-to-basket {
+  align-self: flex-end;
+  width: 100%;
+  height: 70px;
+  border-radius: 30px 30px 0 0;
+  background-color: #eee71b;
+  font-size: 30px;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .bascer-button .ad-to-basket:hover {
+  background-color: #ee7d1b;
+  border: 2px solid purple;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .star-feach {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background: none;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .star-feach img {
+  height: 60px;
+  width: 60px;
+  transition: transform 0.3s ease;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .star-feach img:hover {
+  transform: rotate(20deg);
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info {
   background-color: #8383FF;
@@ -426,7 +474,7 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box {
   position: relative;
-  padding: 50px 0 0 50px;
+  margin: 50px 0 0 50px;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .body-box {
   width: 600px;
@@ -434,9 +482,23 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .box-element {
   position: absolute;
   width: 600px;
-  left: 50px;
+  left: 0;
   bottom: 18px;
   z-index: 1;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 4;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner {
+  background-color: rgba(199, 60, 97, 0.5725490196);
+  height: 370px;
+  margin: 0 30px;
+  transform-origin: center center;
+  transform: perspective(1000px) rotateX(25deg);
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box {
   flex-grow: 1;

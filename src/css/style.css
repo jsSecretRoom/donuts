@@ -14,8 +14,8 @@ body .continer {
   align-items: center;
 }
 body .continer .content-continer {
-  border-left: 5px solid black;
-  border-right: 5px solid black;
+  border-left: 3px solid black;
+  border-right: 3px solid black;
 }
 body .continer .content-continer header {
   height: 230px;
@@ -186,6 +186,7 @@ body .continer .content-continer main .donuts-shop .search-panel .search-buttons
 body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites {
   background-color: white;
   border-radius: 50px;
+  position: relative;
 }
 body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main:hover, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag:hover, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites:hover {
   background-color: rgb(0, 87, 209);
@@ -193,6 +194,21 @@ body .continer .content-continer main .donuts-shop .search-panel .search-buttons
 body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main img, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag img, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites img {
   height: 50px;
   width: 50px;
+}
+body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main .coun-of-bay, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag .coun-of-bay, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites .coun-of-bay {
+  height: 25px;
+  width: 25px;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(162, 111, 230);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main .coun-of-bay p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag .coun-of-bay p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites .coun-of-bay p {
+  font-size: 15px;
 }
 body .continer .content-continer main .donuts-shop .search-panel .search-line {
   display: flex;
@@ -408,9 +424,26 @@ body .continer .content-continer main .donuts-shop .will-call .order p:hover {
 body .continer .content-continer main .donuts-shop .will-call .order .bag-img {
   background: white;
   border-radius: 50px;
+  position: relative;
 }
 body .continer .content-continer main .donuts-shop .will-call .order .bag-img img {
   width: 100%;
+}
+body .continer .content-continer main .donuts-shop .will-call .order .bag-img .coun-of-bay {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(162, 111, 230);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .continer .content-continer main .donuts-shop .will-call .order .bag-img .coun-of-bay p {
+  font-size: 20px;
+  color: #000000;
 }
 body .continer .content-continer main .donuts-shop .will-call p {
   color: white;
@@ -429,7 +462,7 @@ body .continer .content-continer main .donuts-shop .will-call .call a:hover {
   color: rgb(255, 11, 11);
 }
 body .continer .content-continer main .donuts-shop .create-set {
-  background-color: #C73C61;
+  background-color: #B50E99;
 }
 body .continer .content-continer main .donuts-shop .create-set .create {
   display: flex;
@@ -464,7 +497,8 @@ body .continer .content-continer main .donuts-shop .create-set .create .choose-b
   font-size: 70px;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer {
-  background-color: #429485;
+  background: url("../img/bacground/2.svg") no-repeat center center;
+  background-size: cover;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box {
   width: 100%;
@@ -475,6 +509,17 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box {
   position: relative;
   margin: 50px 0 0 50px;
+  animation: fadeInDown 1s ease-in-out;
+}
+@keyframes fadeInDown {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .body-box {
   width: 900px;
@@ -563,26 +608,45 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: url("../img/bacground/3.svg") no-repeat center center;
+  background-size: cover;
+  animation: fadeInApp 1s ease-in-out;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box button {
+@keyframes fadeInApp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .price-conteiner {
+  background-color: #83BECC;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid black;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .price-conteiner button {
   width: 200px;
   height: 100px;
   border-radius: 10px;
   background-color: #dc7610;
   color: white;
   font-size: 40px;
-  border: 1px solid black;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box button:hover {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .price-conteiner button:hover {
   background-color: #a910dc;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box p {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .price-conteiner p {
+  color: rgb(254, 6, 60);
   padding: 10px 0;
   font-size: 50px;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts {
   width: 100%;
-  background-color: #C73C61;
+  background-color: #B50E99;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner {
   overflow-x: hidden;
@@ -679,6 +743,11 @@ body .continer .content-continer footer .navigation nav a {
   color: white;
   font-size: 40px;
   padding: 10px 0;
+  transition: font-size 0.3s ease;
+}
+body .continer .content-continer footer .navigation nav a:hover {
+  color: rgb(52, 85, 255);
+  font-size: 44px;
 }
 @keyframes fadeInDown {
   0% {
@@ -699,6 +768,11 @@ body .continer .content-continer footer .navigation .logo {
   position: relative;
   animation: fadeInUp 1s ease-in-out; /* Анимация появления */
   color: #f5ff39;
+  transition: font-size 0.3s ease;
+}
+body .continer .content-continer footer .navigation .logo:hover {
+  color: rgb(98, 3, 221);
+  font-size: 75px;
 }
 body .continer .content-continer footer .navigation .logo p {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -721,8 +795,16 @@ body .continer .content-continer footer .info-conpany {
   justify-content: space-around;
   background: linear-gradient(to bottom, #541149, #541111);
 }
+body .continer .content-continer footer .info-conpany .column {
+  height: 140px;
+}
 body .continer .content-continer footer .info-conpany .column p {
   color: white;
   font-size: 25px;
   padding: 10px 0;
+  transition: font-size 0.3s ease;
+}
+body .continer .content-continer footer .info-conpany .column p:hover {
+  color: rgb(98, 3, 221);
+  font-size: 30px;
 }

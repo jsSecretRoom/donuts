@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
       addClickListener(rightButtons, slideToNext);
     }
     sliderSwiper('.left', '.right', '.carousel', '.slid', '.wraper');
-    
+
 });
 
 

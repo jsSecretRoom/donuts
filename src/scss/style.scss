@@ -13,8 +13,8 @@ body{
         align-items: center;
         
         .content-continer{
-            border-left: 5px solid black;
-            border-right: 5px solid black;
+            border-left: 3px solid black;
+            border-right: 3px solid black;
             header{
                 height: 230px;
                 width: 1440px;
@@ -181,12 +181,28 @@ body{
                             .main, .bag, .favorites {
                                 background-color: white;
                                 border-radius: 50px;
+                                position: relative;
                                 &:hover{
                                     background-color: rgb(0, 87, 209);
                                 }
                                 img{
                                     height: 50px;
                                     width: 50px;
+                                }
+                                .coun-of-bay{
+                                    height: 25px;
+                                    width: 25px;
+                                    border-radius: 50px;
+                                    position: absolute;
+                                    bottom: 0;
+                                    right: 0;
+                                    background-color: rgb(162, 111, 230);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    p{
+                                        font-size: 15px;
+                                    }
                                 }
                             }
                             
@@ -419,8 +435,25 @@ body{
                             .bag-img{
                                 background: white;
                                 border-radius: 50px;
+                                position: relative;
                                 img{
                                     width: 100%;
+                                }
+                                .coun-of-bay{
+                                    height: 40px;
+                                    width: 40px;
+                                    border-radius: 50px;
+                                    position: absolute;
+                                    bottom: 0;
+                                    right: 0;
+                                    background-color: rgb(162, 111, 230);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    p{
+                                        font-size: 20px;
+                                        color: #000000;
+                                    }
                                 }
                             }
                         }
@@ -444,7 +477,7 @@ body{
                     }
 
                     .create-set {
-                        background-color: #C73C61;
+                        background-color: #B50E99;
                         .create {
                             display: flex;
                             justify-content: space-between;
@@ -478,8 +511,8 @@ body{
                             }
                         }
                         .box-continer {
-                            
-                            background-color: #429485;
+                            background: url("../img/bacground/2.svg") no-repeat center center ;
+                            background-size: cover;
                             .box {
                                 width: 100%;
                                 height: 650px;
@@ -488,6 +521,19 @@ body{
                                 .donuts-box {
                                     position: relative;
                                     margin: 50px 0 0 50px;
+
+                                    animation: fadeInDown 1s ease-in-out;
+                                    @keyframes fadeInDown {
+                                        0% {
+                                            transform: translateY(-30px);
+                                            opacity: 0;
+                                        }
+                                        100% {
+                                            transform: translateY(0px);
+                                            opacity: 1;
+                                        }
+                                    }
+
                                     .body-box {
                                         width: 900px;
                                     }
@@ -582,22 +628,47 @@ body{
                                     flex-direction: column;
                                     align-items: center;
                                     justify-content: center;
+                                    
+                                    background: url("../img/bacground/3.svg") no-repeat center center ;
+                                    background-size: cover;
 
-                                    button{
-                                        width: 200px;
-                                        height: 100px;
-                                        border-radius: 10px;
-                                        background-color: #dc7610;
-                                        color: white;
-                                        font-size: 40px;
-                                        border: 1px solid black;
-                                        &:hover{
-                                            background-color: #a910dc;
+                                    
+                                    animation: fadeInApp 1s ease-in-out;
+                                    @keyframes fadeInApp {
+                                        0% {
+                                            transform: translateY(30px);
+                                            opacity: 0;
+                                        }
+                                        100% {
+                                            transform: translateY(0px);
+                                            opacity: 1;
                                         }
                                     }
-                                    p{
-                                        padding: 10px 0;
-                                        font-size: 50px;
+
+                                    .price-conteiner{
+                                        background-color: #83BECC;
+                                        border-radius: 10px;
+                                        text-align: center;
+                                        border: 1px solid black;
+                                        button{
+                                            width: 200px;
+                                            height: 100px;
+                                            border-radius: 10px;
+                                            background-color: #dc7610;
+                                            color: white;
+                                            font-size: 40px;
+                                            
+                                            &:hover{
+                                                background-color: #a910dc;
+                                            }
+                                        }
+
+                                        p{
+                                            color: rgb(254, 6, 60);
+                                            padding: 10px 0;
+                                            font-size: 50px;
+                                            
+                                        }
                                     }
                                 }
                                
@@ -605,7 +676,7 @@ body{
                             
                             .choose-donuts {
                                 width: 100%;
-                                background-color: #C73C61;
+                                background-color: #B50E99;
 
                                 .wraper-conteiner {
                                     overflow-x: hidden;
@@ -709,7 +780,13 @@ body{
                             color: white;
                             font-size: 40px;
                             padding: 10px 0;
+                            transition: font-size 0.3s ease;
+                            &:hover{
+                                color: rgb(52, 85, 255); 
+                                font-size: 44px;
+                            }
                         }
+                        
                         @keyframes fadeInDown {
                             0% {
                                 transform: translateY(-20px);
@@ -730,6 +807,11 @@ body{
                         position: relative;
                         animation: fadeInUp 1s ease-in-out; /* Анимация появления */
                         color: #f5ff39;
+                        transition: font-size 0.3s ease;
+                        &:hover{
+                            color: rgb(98, 3, 221);
+                            font-size: 75px;
+                        }
                         p{
                             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
                             position: relative;
@@ -755,10 +837,17 @@ body{
                     justify-content: space-around;
                     background: linear-gradient(to bottom, #541149, #541111);
                     .column{
+                        height: 140px;
                         p{
+                            
                             color: white;
                             font-size: 25px;
                             padding: 10px 0;
+                            transition: font-size 0.3s ease;
+                            &:hover{
+                                color: rgb(98, 3, 221);
+                                font-size: 30px;
+                            }
                         }
                     }
                 }

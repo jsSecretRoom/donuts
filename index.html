@@ -342,16 +342,16 @@
                 <p>CREATE:</p>
               </div>
               <div class="choose-box">
-                <button>
+                <button class="choose">
                   <p>6</p>
                 </button>
-                <button>
+                <button class="choose">
                   <p>9</p>
                 </button>
-                <button>
+                <button class="choose">
                   <p>12</p>
                 </button>
-                <button>
+                <button class="choose">
                   <p>16</p>
                 </button>
               </div>
@@ -363,41 +363,48 @@
                 <div class="donuts-box">
                   <img class="body-box" src="./src/img/box/box-body.svg" alt="">
                   <img class="box-element" src="./src/img/box/box-element.svg" alt="">
+                  <div class="wish">
+                    <p>Put in me!</p>
+                  </div>
                   <div class="donuts-count">
                     <div class="count-donuts-conteiner">
-                      <div class="line-conteiner1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <div class="donut-cell1" id="cell1" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
-                        <div class="donut-cell2" id="cell2" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
-                        <div class="donut-cell3" id="cell3" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
-                        <div class="donut-cell4" id="cell4" ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
+                      <div class="line-conteiner">
+                        <div class="donut-cell1"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell2"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell3"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell4"><img src="./src/icons/donut.svg" alt=""></div>
                       </div>
-                      <div class="line-conteiner1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <div class="donut-cell1" id="cell5" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
-                        <div class="donut-cell2" id="cell6" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
-                        <div class="donut-cell3" id="cell7" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
-                        <div class="donut-cell4" id="cell8" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
+                      <div class="line-conteiner">
+                        <div class="donut-cell1"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell2"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell3"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell4"><img src="./src/icons/donut.svg" alt=""></div>
                       </div>
-                      <div class="line-conteiner1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <div class="donut-cell1" id="cell9" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
-                        <div class="donut-cell2" id="cell10" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
-                        <div class="donut-cell3" id="cell11" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
-                        <div class="donut-cell4" id="cell12" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
+                      <div class="line-conteiner">
+                        <div class="donut-cell1"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell2"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell3"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell4"><img src="./src/icons/donut.svg" alt=""></div>
                       </div>
-                      <div class="line-conteiner1" ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <div class="donut-cell1" id="cell13" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
-                        <div class="donut-cell2" id="cell4" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
-                        <div class="donut-cell3" id="cell5" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
-                        <div class="donut-cell4" id="cell6" ondrop="drop(event)" ondragover="allowDrop(event)" ><img src="./src/icons/donut.svg" alt=""></div>
+                      <div class="line-conteiner">
+                        <div class="donut-cell1"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell2"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell3"><img src="./src/icons/donut.svg" alt=""></div>
+                        <div class="donut-cell4"><img src="./src/icons/donut.svg" alt=""></div>
                       </div>
                     </div>
                   </div>
                   <div class="cap">
-                    <div class="box-cap"></div>
+                    <div class="box-cap">
+                      <button class="order-more">ORDER</button>
+                      <button class="logo"><p>Divine Doughnuts</p></button>
+                      <button class="logo-img"><img src="./src/icons/DD.svg" alt=""></button>
+                    </div>
                   </div>
                 </div>
                 <div class="bill-box">
-                  <div class="price-conteiner">
-                    <button>CREATE</button>
+                  <div class="create-price-conteiner">
+                    <button class="create-ovn-pack">CREATE</button>
                     <p>price:</p>
                     <p>400$</p>
                   </div>
@@ -565,6 +572,11 @@
             <p>D.D.</p>
             <p>contact us</p>
             <p>wishes</p>
+          </div>
+          <div class="column">
+            <p>work with us</p>
+            <p>delivery</p>
+            <p>Privacy policy</p>
           </div>
           <div class="column">
             <p>work with us</p>

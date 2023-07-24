@@ -23,8 +23,10 @@ body{
                 justify-content: space-around;
                 align-items: center;
                 nav{
+                    flex: 1;
                     display: flex;
                     flex-direction: column;
+                    text-align: center;
                     animation: fadeInDown 1s ease-in-out;
                     a{
                         color: white;
@@ -49,6 +51,7 @@ body{
                     }
                 }
                 .logo {
+                    flex: 1;
                     text-align: center;
                     font-size: 70px;
                     letter-spacing: 4px;
@@ -496,7 +499,7 @@ body{
                                 display: flex;
                                 justify-content: space-between;
                                 padding: 0 85px;
-                                button{
+                                .choose{
                                     width: 100px;
                                     height: 150px;
                                     margin: 10px;
@@ -507,6 +510,9 @@ body{
                                     p{
                                         font-size: 70px;
                                     }
+                                }
+                                .choose.active {
+                                    background-color: #8383FF;
                                 }
                             }
                         }
@@ -533,7 +539,18 @@ body{
                                             opacity: 1;
                                         }
                                     }
-
+                                    .wish{
+                                        width: 100%;
+                                        position: absolute;
+                                        text-align: center;
+                                        bottom: 50px; 
+                                        z-index: 5;
+                                        p{
+                                            color: #ffffff;
+                                            font-size: 80px;
+                                        }
+                                    }
+                                    
                                     .body-box {
                                         width: 900px;
                                     }
@@ -541,7 +558,7 @@ body{
                                         position: absolute;
                                         width: 900px;
                                         left: 0;
-                                        bottom: 26px;
+                                        bottom: 35px;
                                         z-index: 5;
                                     }
                                     .donuts-count, .cap{
@@ -564,7 +581,7 @@ body{
                                             grid-template-rows: 1fr 1fr 1fr 1fr;
                                             row-gap: 2px;
                                             column-gap: 2px;
-                                            .line-conteiner1, .line-conteiner2, .line-conteiner3, .line-conteiner4{
+                                            .line-conteiner{
                                                 display: flex;
                                                 align-items: center;
                                                 flex-direction: column;
@@ -606,21 +623,93 @@ body{
                                                     top: 300px;
                                                     z-index: 4;
                                                 }
+
+                                                .donut-cell4.hide-donut-cell{
+                                                    display: none;
+                                                }
+                                            }
+                                            .line-conteiner.hide-donuts-conteiner{
+                                                display: none;
                                             }
                                             
                                         }
                                     }
                                     .cap{
-                                        z-index: 1; //!!!!!!!!!6
+                                        z-index: 1;//!!!!
+                                        
                                         .box-cap{
-                                            background-color: #541111;
-                                            height: 415px;
-                                            margin: 0 70px;
+                                            background: url("../img/box/cap.svg") no-repeat center center fixed;
+                                            background-size: cover;
+                                            height: 425px;
+                                            margin: 0 56px;
                                             transform-origin: center top; 
                                             transform: perspective(1000px) rotateX(270deg);
-                                            
+                                            position: relative;
+                                            .order-more{
+                                                height: 80px;
+                                                width: 400px;
+                                                background-color: #a910dc;
+                                                position: absolute;
+                                                right: 30px;
+                                                top: 30px;
+                                                border-radius: 50px;
+                                                border: 1px solid #000;
+                                                background: #C52139;
+                                                box-shadow: -11px 30px 3px 0px rgba(0, 0, 0, 0.50);
+                                                font-size: 40px;
+                                                color: rgb(0, 94, 234);
+                                                &:hover{
+                                                    background: #680110;
+                                                    color: white;
+                                                }
+                                            }
+                                            .logo{
+                                                position: absolute;
+                                                width: 100%;
+                                                background: none;
+                                                bottom: 35px;
+                                                right: 40px;
+                                                
+                                                p{ 
+                                                    font-size: 65px;
+                                                    &:hover{
+                                                        color: rgb(255, 2, 53);
+                                                    }
+                                                }
+                                            }
+                                            .logo-img{
+                                                position: absolute;
+                                                background: none;
+                                                bottom: 40px;
+                                                right: 30px;
+                                                
+                                                img{
+                                                    height: 70px;
+                                                    width: 70px;
+                                                    box-shadow: -11px 15px 3px 0px rgba(0, 0, 0, 0.50);
+                                                    border-radius: 10px;
+                                                }
+                                            }
                                         }
+                                        .box-cap.animate {
+                                            animation-name: rotateAnimation;
+                                            animation-duration: 2s;
+                                            animation-fill-mode: forwards;
+                                            @keyframes rotateAnimation {
+                                                from {
+                                                  transform: perspective(1000px) rotateX(270deg);
+                                                }
+                                                to {
+                                                  transform: perspective(1000px) rotateX(18deg);
+                                                }
+                                            }
+                                        }
+                                        
                                     }
+                                    .cap.index{
+                                        z-index: 6;
+                                    }
+                                    
                                 }
                                 .bill-box{
                                     flex-grow: 1;
@@ -645,12 +734,12 @@ body{
                                         }
                                     }
 
-                                    .price-conteiner{
+                                    .create-price-conteiner{
                                         background-color: #83BECC;
                                         border-radius: 10px;
                                         text-align: center;
                                         border: 1px solid black;
-                                        button{
+                                        .create-ovn-pack{
                                             width: 200px;
                                             height: 100px;
                                             border-radius: 10px;
@@ -773,9 +862,11 @@ body{
                     justify-content: space-around;
                     align-items: center;
                     nav{
+                        flex: 1;
                         display: flex;
                         flex-direction: column;
                         animation: fadeInDown 1s ease-in-out;
+                        text-align: center;
                         a{
                             color: white;
                             font-size: 40px;
@@ -799,6 +890,7 @@ body{
                         }
                     }
                     .logo {
+                        flex: 1;
                         text-align: center;
                         font-size: 70px;
                         letter-spacing: 4px;
@@ -837,7 +929,9 @@ body{
                     justify-content: space-around;
                     background: linear-gradient(to bottom, #541149, #541111);
                     .column{
+                        flex: 1;
                         height: 140px;
+                        text-align: center;
                         p{
                             
                             color: white;

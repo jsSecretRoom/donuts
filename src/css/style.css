@@ -26,8 +26,10 @@ body .continer .content-continer header {
   align-items: center;
 }
 body .continer .content-continer header nav {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  text-align: center;
   animation: fadeInDown 1s ease-in-out;
 }
 body .continer .content-continer header nav a {
@@ -51,6 +53,7 @@ body .continer .content-continer header nav a:hover {
   }
 }
 body .continer .content-continer header .logo {
+  flex: 1;
   text-align: center;
   font-size: 70px;
   letter-spacing: 4px;
@@ -484,17 +487,20 @@ body .continer .content-continer main .donuts-shop .create-set .create .choose-b
   justify-content: space-between;
   padding: 0 85px;
 }
-body .continer .content-continer main .donuts-shop .create-set .create .choose-box button {
+body .continer .content-continer main .donuts-shop .create-set .create .choose-box .choose {
   width: 100px;
   height: 150px;
   margin: 10px;
   border-radius: 10px;
 }
-body .continer .content-continer main .donuts-shop .create-set .create .choose-box button:hover {
+body .continer .content-continer main .donuts-shop .create-set .create .choose-box .choose:hover {
   background-color: #8383FF;
 }
-body .continer .content-continer main .donuts-shop .create-set .create .choose-box button p {
+body .continer .content-continer main .donuts-shop .create-set .create .choose-box .choose p {
   font-size: 70px;
+}
+body .continer .content-continer main .donuts-shop .create-set .create .choose-box .choose.active {
+  background-color: #8383FF;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer {
   background: url("../img/bacground/2.svg") no-repeat center center;
@@ -521,6 +527,17 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
     opacity: 1;
   }
 }
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .wish {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  bottom: 50px;
+  z-index: 5;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .wish p {
+  color: #ffffff;
+  font-size: 80px;
+}
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .body-box {
   width: 900px;
 }
@@ -528,7 +545,7 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   position: absolute;
   width: 900px;
   left: 0;
-  bottom: 26px;
+  bottom: 35px;
   z-index: 5;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap {
@@ -553,12 +570,12 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   -moz-column-gap: 2px;
        column-gap: 2px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell4 {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell4 {
   height: 200px;
   width: 170px;
   transform: rotateX(-30deg);
@@ -569,38 +586,105 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   transition: transform 0.3s ease;
   cursor: pointer;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell4:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell4:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell4:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell4:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell4:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell4:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell4:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell4:hover {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell4:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell1:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell2:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell3:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell4:hover {
   transform: rotateX(0deg);
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell4 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell4 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell4 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell4 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell4 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell4 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell4 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell4 img {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell4 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell2 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell3 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell4 img {
   height: 100%;
   width: 100%;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell1 {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell1, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell1 {
   top: 0;
   z-index: 1;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell2 {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell2, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell2 {
   top: 100px;
   z-index: 2;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell3 {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell3, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell3 {
   top: 200px;
   z-index: 3;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner1 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner2 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner3 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner4 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner1 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner2 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner3 .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner4 .donut-cell4 {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell4, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell4 {
   top: 300px;
   z-index: 4;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner .donut-cell4.hide-donut-cell, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner .donut-cell4.hide-donut-cell {
+  display: none;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .donuts-count .count-donuts-conteiner .line-conteiner.hide-donuts-conteiner, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .count-donuts-conteiner .line-conteiner.hide-donuts-conteiner {
+  display: none;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap {
   z-index: 1;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap {
-  background-color: #541111;
-  height: 415px;
-  margin: 0 70px;
+  background: url("../img/box/cap.svg") no-repeat center center fixed;
+  background-size: cover;
+  height: 425px;
+  margin: 0 56px;
   transform-origin: center top;
   transform: perspective(1000px) rotateX(270deg);
+  position: relative;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .order-more {
+  height: 80px;
+  width: 400px;
+  background-color: #a910dc;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  border-radius: 50px;
+  border: 1px solid #000;
+  background: #C52139;
+  box-shadow: -11px 30px 3px 0px rgba(0, 0, 0, 0.5);
+  font-size: 40px;
+  color: rgb(0, 94, 234);
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .order-more:hover {
+  background: #680110;
+  color: white;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo {
+  position: absolute;
+  width: 100%;
+  background: none;
+  bottom: 35px;
+  right: 40px;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo p {
+  font-size: 65px;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo p:hover {
+  color: rgb(255, 2, 53);
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo-img {
+  position: absolute;
+  background: none;
+  bottom: 40px;
+  right: 30px;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo-img img {
+  height: 70px;
+  width: 70px;
+  box-shadow: -11px 15px 3px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap.animate {
+  animation-name: rotateAnimation;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotateAnimation {
+  from {
+    transform: perspective(1000px) rotateX(270deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(18deg);
+  }
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap.index {
+  z-index: 6;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box {
   flex-grow: 1;
@@ -622,13 +706,13 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
     opacity: 1;
   }
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .price-conteiner {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .create-price-conteiner {
   background-color: #83BECC;
   border-radius: 10px;
   text-align: center;
   border: 1px solid black;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .price-conteiner button {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .create-price-conteiner .create-ovn-pack {
   width: 200px;
   height: 100px;
   border-radius: 10px;
@@ -636,10 +720,10 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   color: white;
   font-size: 40px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .price-conteiner button:hover {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .create-price-conteiner .create-ovn-pack:hover {
   background-color: #a910dc;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .price-conteiner p {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .create-price-conteiner p {
   color: rgb(254, 6, 60);
   padding: 10px 0;
   font-size: 50px;
@@ -735,9 +819,11 @@ body .continer .content-continer footer .navigation {
   align-items: center;
 }
 body .continer .content-continer footer .navigation nav {
+  flex: 1;
   display: flex;
   flex-direction: column;
   animation: fadeInDown 1s ease-in-out;
+  text-align: center;
 }
 body .continer .content-continer footer .navigation nav a {
   color: white;
@@ -760,6 +846,7 @@ body .continer .content-continer footer .navigation nav a:hover {
   }
 }
 body .continer .content-continer footer .navigation .logo {
+  flex: 1;
   text-align: center;
   font-size: 70px;
   letter-spacing: 4px;
@@ -796,7 +883,9 @@ body .continer .content-continer footer .info-conpany {
   background: linear-gradient(to bottom, #541149, #541111);
 }
 body .continer .content-continer footer .info-conpany .column {
+  flex: 1;
   height: 140px;
+  text-align: center;
 }
 body .continer .content-continer footer .info-conpany .column p {
   color: white;

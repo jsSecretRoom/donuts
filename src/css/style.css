@@ -627,7 +627,10 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   transform: perspective(1000px) rotateX(270deg);
   position: relative;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .order-more {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front {
+  z-index: 2;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .order-more {
   height: 80px;
   width: 400px;
   background-color: #a910dc;
@@ -641,34 +644,47 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   font-size: 40px;
   color: rgb(0, 94, 234);
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .order-more:hover {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .order-more:hover {
   background: #680110;
   color: white;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .logo {
   position: absolute;
   width: 100%;
   background: none;
   bottom: 35px;
   right: 40px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo p {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .logo p {
   font-size: 65px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo p:hover {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .logo p:hover {
   color: rgb(255, 2, 53);
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo-img {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .logo-img {
   position: absolute;
   background: none;
   bottom: 40px;
   right: 30px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .logo-img img {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .logo-img img {
   height: 70px;
   width: 70px;
   box-shadow: -11px 15px 3px 0px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: perspective(1000px) rotateX(180deg);
+  background-color: #5C3317;
+  backface-visibility: visible;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .back.activHiden {
+  backface-visibility: hidden;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap.animate {
   animation-name: rotateAnimation;
@@ -681,6 +697,19 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   }
   to {
     transform: perspective(1000px) rotateX(18deg);
+  }
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap.reverseAnimate {
+  animation-name: reverseRotateAnimation;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes reverseRotateAnimation {
+  from {
+    transform: perspective(1000px) rotateX(18deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(270deg);
   }
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap.index {

@@ -635,7 +635,7 @@ body{
                                         }
                                     }
                                     .cap{
-                                        z-index: 1;//!!!!
+                                        z-index: 1;
                                         
                                         .box-cap{
                                             background: url("../img/box/cap.svg") no-repeat center center fixed;
@@ -645,52 +645,74 @@ body{
                                             transform-origin: center top; 
                                             transform: perspective(1000px) rotateX(270deg);
                                             position: relative;
-                                            .order-more{
-                                                height: 80px;
-                                                width: 400px;
-                                                background-color: #a910dc;
-                                                position: absolute;
-                                                right: 30px;
-                                                top: 30px;
-                                                border-radius: 50px;
-                                                border: 1px solid #000;
-                                                background: #C52139;
-                                                box-shadow: -11px 30px 3px 0px rgba(0, 0, 0, 0.50);
-                                                font-size: 40px;
-                                                color: rgb(0, 94, 234);
-                                                &:hover{
-                                                    background: #680110;
-                                                    color: white;
-                                                }
-                                            }
-                                            .logo{
-                                                position: absolute;
-                                                width: 100%;
-                                                background: none;
-                                                bottom: 35px;
-                                                right: 40px;
-                                                
-                                                p{ 
-                                                    font-size: 65px;
+
+                                            
+                                            .front{
+                                                z-index: 2;
+                                                .order-more{
+                                                    height: 80px;
+                                                    width: 400px;
+                                                    background-color: #a910dc;
+                                                    position: absolute;
+                                                    right: 30px;
+                                                    top: 30px;
+                                                    border-radius: 50px;
+                                                    border: 1px solid #000;
+                                                    background: #C52139;
+                                                    box-shadow: -11px 30px 3px 0px rgba(0, 0, 0, 0.50);
+                                                    font-size: 40px;
+                                                    color: rgb(0, 94, 234);
                                                     &:hover{
-                                                        color: rgb(255, 2, 53);
+                                                        background: #680110;
+                                                        color: white;
+                                                    }
+                                                }
+                                                .logo{
+                                                    position: absolute;
+                                                    width: 100%;
+                                                    background: none;
+                                                    bottom: 35px;
+                                                    right: 40px;
+                                                    
+                                                    p{ 
+                                                        font-size: 65px;
+                                                        &:hover{
+                                                            color: rgb(255, 2, 53);
+                                                        }
+                                                    }
+                                                }
+                                                .logo-img{
+                                                    position: absolute;
+                                                    background: none;
+                                                    bottom: 40px;
+                                                    right: 30px;
+                                                    
+                                                    img{
+                                                        height: 70px;
+                                                        width: 70px;
+                                                        box-shadow: -11px 15px 3px 0px rgba(0, 0, 0, 0.50);
+                                                        border-radius: 10px;
                                                     }
                                                 }
                                             }
-                                            .logo-img{
+                                            .back{
+                                                width: 100%;
+                                                height: 100%;
                                                 position: absolute;
-                                                background: none;
-                                                bottom: 40px;
-                                                right: 30px;
-                                                
-                                                img{
-                                                    height: 70px;
-                                                    width: 70px;
-                                                    box-shadow: -11px 15px 3px 0px rgba(0, 0, 0, 0.50);
-                                                    border-radius: 10px;
-                                                }
+                                                top: 0;
+                                                left: 0;
+                                                transform: perspective(1000px) rotateX(180deg);
+                                                background-color: #5C3317;
+                                                backface-visibility: visible;
+                                                    
                                             }
+                                            .back.activHiden{
+                                                
+                                                backface-visibility: hidden;
+                                            }
+                                            
                                         }
+                                        
                                         .box-cap.animate {
                                             animation-name: rotateAnimation;
                                             animation-duration: 2s;
@@ -704,7 +726,21 @@ body{
                                                 }
                                             }
                                         }
+
+                                        .box-cap.reverseAnimate {
+                                            animation-name: reverseRotateAnimation;
+                                            animation-duration: 2s;
+                                            animation-fill-mode: forwards;
                                         
+                                            @keyframes reverseRotateAnimation {
+                                              from {
+                                                transform: perspective(1000px) rotateX(18deg);
+                                              }
+                                              to {
+                                                transform: perspective(1000px) rotateX(270deg);
+                                              }
+                                            }
+                                        }
                                     }
                                     .cap.index{
                                         z-index: 6;

@@ -1,0 +1,46 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "classification": "Классические",
+        "name": "Пончик с шоколадной начинкой",
+        "quantity_per_pack": 12,
+        "description": "Нежный пончик с вкуснейшей шоколадной начинкой.",
+        "image_path": "/images/donut_chocolate.jpg",
+        "new_arrival": true,
+        "popular": true,
+        "weight_grams": 100,
+        "calories": 350,
+        "discounted_price": 90,
+        "real_price": 120
+      },
+      {
+        "id": 2,
+        "classification": "Фруктовые",
+        "name": "Пончик с клубничной начинкой",
+        "quantity_per_pack": 10,
+        "description": "Сочный пончик с натуральной клубничной начинкой.",
+        "image_path": "/images/donut_strawberry.jpg",
+        "new_arrival": false,
+        "popular": true,
+        "weight_grams": 120,
+        "calories": 280,
+        "discounted_price": 80,
+        "real_price": 100
+      },
+      {
+        "id": 3,
+        "classification": "Праздничные",
+        "name": "Пончик с ванильной глазурью",
+        "quantity_per_pack": 6,
+        "description": "Праздничный пончик с нежной ванильной глазурью.",
+        "image_path": "/images/donut_vanilla.jpg",
+        "new_arrival": true,
+        "popular": false,
+        "weight_grams": 90,
+        "calories": 320,
+        "discounted_price": 70,
+        "real_price": 90
+      }
+    ]
+}

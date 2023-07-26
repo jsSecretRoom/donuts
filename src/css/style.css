@@ -315,7 +315,6 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   display: flex;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid {
-  flex: 0 0 auto;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -329,14 +328,14 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   margin: 10px;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img {
-  width: 350px;
-  height: 600px;
+  width: 300px;
+  height: 550px;
   position: relative;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .product-foto {
   border-radius: 10px 10px 0 0;
-  width: 350px;
-  height: 600px;
+  width: 300px;
+  height: 550px;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .bascet-button {
   position: absolute;
@@ -350,12 +349,29 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   width: 100%;
   height: 70px;
   border-radius: 30px 30px 0 0;
-  background-color: #eee71b;
+  background-color: rgba(238, 231, 27, 0.8039215686);
   font-size: 30px;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .bascet-button .ad-to-basket:hover {
   background-color: #ee7d1b;
   border: 2px solid purple;
+  color: #541146;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .card-info-indicator {
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: 10px;
+  background-color: #2bdf37;
+  width: 120px;
+  height: 30px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .card-info-indicator p {
+  font-size: 20px;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .star-feach {
   position: absolute;
@@ -376,11 +392,19 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   background-color: #8383FF;
   border-radius: 0 0 10px 10px;
   padding: 10px;
-  width: 350px;
+  width: 300px;
   height: 150px;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info .description p {
   font-size: 20px;
+  color: #C52139;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info .description p span {
+  color: white;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info .description .desk {
+  font-size: 18px;
+  color: #111f54;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info .price {
   display: flex;
@@ -630,21 +654,49 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front {
   z-index: 2;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .order-more {
-  height: 80px;
-  width: 400px;
-  background-color: #a910dc;
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer {
   position: absolute;
-  right: 30px;
-  top: 30px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 0 150px 0;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .location input, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .naim input, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .phone-number input {
+  height: 35px;
+  width: 300px;
+  margin: 10px 0;
+  padding: 0 10px;
+  font-size: 20px;
+  border-radius: 50px;
+  box-shadow: -5px 12px 3px 0px rgba(0, 0, 0, 0.5);
+  border: 1px solid #000;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .location input::-moz-placeholder, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .naim input::-moz-placeholder, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .phone-number input::-moz-placeholder {
+  color: #000;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .location input::placeholder, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .naim input::placeholder, body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .phone-number input::placeholder {
+  color: #000;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .order-more {
+  height: 50px;
+  width: 300px;
+  background-color: #a910dc;
   border-radius: 50px;
   border: 1px solid #000;
   background: #C52139;
-  box-shadow: -11px 30px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: -5px 12px 3px 0px rgba(0, 0, 0, 0.5);
   font-size: 40px;
   color: rgb(0, 94, 234);
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .order-more:hover {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .box .donuts-box .cap .box-cap .front .form-continer form .order-more:hover {
   background: #680110;
   color: white;
 }

@@ -1,27 +1,22 @@
-// Класс для представления карточки товара
+import DonutsGoodsService from './donutsService';
+
 class ProductCard {
   constructor(product) {
     this.id = product.id;
-
     this.classification = product.classification;
     this.name = product.name;
-    
     this.description = product.description;
     this.imagePath = product.image_path;
-
     this.newArrival = product.new_arrival;
     this.popular = product.popular;
-
     this.weight_grams = product.weight_grams;
     this.calories = product.calories;
-    
     this.discounted_price = product.discounted_price;
     this.realPrice = product.real_price;
   }
 
-  // Метод для создания HTML-кода карточки товара
   createCardHTML() {
-
+    
     const arrivalOrPopular = this.newArrival ? 'New' : this.popular ? 'Popular' : '';
 
     return `
@@ -64,15 +59,23 @@ class ProductCard {
   }
 }
 
-// Функция для обработки данных о продуктах
-function processProductsData(products) {
-  // Создаем экземпляры класса ProductCard для каждого продукта
-  const productCards = products.map((product) => new ProductCard(product));
+async function processAndInsertProductCards() {
+  try {
+    const donutsGoodsService = new DonutsGoodsService();
+    const data = await donutsGoodsService.getDonutsSet();
 
-  // Создаем HTML-код для каждой карточки товара
-  const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
+    if (data === null) {
+      console.error("Data is null, check the request and file contents.");
+    } else {
+      const productCards = data.products.map((product) => new ProductCard(product));
+      const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
 
-  // Возвращаем сгенерированный HTML для всех карточек товаров
-  return productCardsHTML;
+      const productsContainer = document.querySelector('.carousel');
+      productsContainer.innerHTML = productCardsHTML;
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
-export default processProductsData;
+
+export default processAndInsertProductCards;

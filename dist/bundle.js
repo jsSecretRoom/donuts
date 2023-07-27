@@ -2,150 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/donutsCardsProcessing.js":
-/*!*****************************************!*\
-  !*** ./src/js/donutsCardsProcessing.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// Класс для представления карточки товара
-class ProductCard {
-  constructor(product) {
-    this.id = product.id;
-
-    this.classification = product.classification;
-    this.name = product.name;
-    
-    this.description = product.description;
-    this.imagePath = product.image_path;
-
-    this.newArrival = product.new_arrival;
-    this.popular = product.popular;
-
-    this.weight_grams = product.weight_grams;
-    this.calories = product.calories;
-    
-    this.discounted_price = product.discounted_price;
-    this.realPrice = product.real_price;
-  }
-
-  // Метод для создания HTML-кода карточки товара
-  createCardHTML() {
-
-    const arrivalOrPopular = this.newArrival ? 'New' : this.popular ? 'Popular' : '';
-
-    return `
-    <div class="slid" id="${this.id}">
-      <div class="cards-conteiner">
-
-        <div class="product-img">
-          <img class="product-foto" src="${this.imagePath}" alt="">
-          <div class="bascet-button">
-            <button class="ad-to-basket">add to basket</button>
-          </div>
-          <div class="card-info-indicator">
-            <p>${arrivalOrPopular}</p>
-          </div>
-          <button class="star-feach">
-            <img  src="./src/icons/Star_light.svg" alt="">
-          </button>
-        </div>
-
-        <div class="product-info">
-          <div class="description">
-            <p>${this.classification} <span>${this.name}</span></p>
-            <p class="desk">${this.description}</p>
-          </div>
-          <div class="price">
-            <div class="info">
-              <p class="weight">${this.weight_grams}</p>
-              <p class="calories">${this.calories}</p>
-            </div>
-            <div class="price-conteiner">
-              <p class="discount-price">${this.realPrice}$</p>
-              <p class="real-price">${this.discounted_price}$</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    `;
-  }
-}
-
-// Функция для обработки данных о продуктах
-function processProductsData(products) {
-  // Создаем экземпляры класса ProductCard для каждого продукта
-  const productCards = products.map((product) => new ProductCard(product));
-
-  // Создаем HTML-код для каждой карточки товара
-  const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
-
-  // Возвращаем сгенерированный HTML для всех карточек товаров
-  return productCardsHTML;
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (processProductsData);
-
-/***/ }),
-
-/***/ "./src/js/donutsService.js":
-/*!*********************************!*\
-  !*** ./src/js/donutsService.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./donutsCardsProcessing */ "./src/js/donutsCardsProcessing.js");
-
-
-// Функция для имитации запроса к файлу goods.json с использованием async/await и fetch
-
-async function donutsGoods(url) {
-  try {
-    let res = await fetch(url);
-
-    if (!res.ok) {
-      throw new Error(`Could not fetch ${url} status: ${res.status}`);
-    }
-
-    return await res.json();
-    
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-}
-
-// Вызываем функцию для имитации запроса данных и их обработки
-donutsGoods('./src/js/goods.json')
-  .then((data) => {
-    if (data === null) {
-      console.error("Data is null, check the request and file contents.");
-    } else {
-      // Используем импортированную функцию для обработки данных
-      const productCardsHTML = (0,_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_0__["default"])(data.products);
-
-      // Находим контейнер, куда хотим вставить карточки товаров
-      const productsContainer = document.querySelector('.carousel');
-
-      // Вставляем сгенерированные карточки товаров в нужное место в HTML
-      productsContainer.innerHTML = productCardsHTML;
-    }
-  })
-  .catch((error) => console.error(error));
-
-  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-/***/ }),
-
 /***/ "./src/js/modules/capOpenCloseAnimation.js":
 /*!*************************************************!*\
   !*** ./src/js/modules/capOpenCloseAnimation.js ***!
@@ -415,6 +271,137 @@ function wishAfterClick(createButton, wishText){
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (wishAfterClick);
 
+/***/ }),
+
+/***/ "./src/js/service/donutsCardsProcessing.js":
+/*!*************************************************!*\
+  !*** ./src/js/service/donutsCardsProcessing.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _donutsService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./donutsService */ "./src/js/service/donutsService.js");
+
+
+class ProductCard {
+  constructor(product) {
+    this.id = product.id;
+    this.classification = product.classification;
+    this.name = product.name;
+    this.description = product.description;
+    this.imagePath = product.image_path;
+    this.newArrival = product.new_arrival;
+    this.popular = product.popular;
+    this.weight_grams = product.weight_grams;
+    this.calories = product.calories;
+    this.discounted_price = product.discounted_price;
+    this.realPrice = product.real_price;
+  }
+
+  createCardHTML() {
+    
+    const arrivalOrPopular = this.newArrival ? 'New' : this.popular ? 'Popular' : '';
+
+    return `
+    <div class="slid" id="${this.id}">
+      <div class="cards-conteiner">
+
+        <div class="product-img">
+          <img class="product-foto" src="${this.imagePath}" alt="">
+          <div class="bascet-button">
+            <button class="ad-to-basket">add to basket</button>
+          </div>
+          <div class="card-info-indicator">
+            <p>${arrivalOrPopular}</p>
+          </div>
+          <button class="star-feach">
+            <img  src="./src/icons/Star_light.svg" alt="">
+          </button>
+        </div>
+
+        <div class="product-info">
+          <div class="description">
+            <p>${this.classification} <span>${this.name}</span></p>
+            <p class="desk">${this.description}</p>
+          </div>
+          <div class="price">
+            <div class="info">
+              <p class="weight">${this.weight_grams}</p>
+              <p class="calories">${this.calories}</p>
+            </div>
+            <div class="price-conteiner">
+              <p class="discount-price">${this.realPrice}$</p>
+              <p class="real-price">${this.discounted_price}$</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    `;
+  }
+}
+
+async function processAndInsertProductCards() {
+  try {
+    const donutsGoodsService = new _donutsService__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    const data = await donutsGoodsService.getDonutsSet();
+
+    if (data === null) {
+      console.error("Data is null, check the request and file contents.");
+    } else {
+      const productCards = data.products.map((product) => new ProductCard(product));
+      const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
+
+      const productsContainer = document.querySelector('.carousel');
+      productsContainer.innerHTML = productCardsHTML;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (processAndInsertProductCards);
+
+
+/***/ }),
+
+/***/ "./src/js/service/donutsService.js":
+/*!*****************************************!*\
+  !*** ./src/js/service/donutsService.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+class DonutsGoodsService {
+  getResurse = async (url) => {
+    try {
+      let res = await fetch(url);
+
+      if (!res.ok) {
+        throw new Error(`Could not fetch ${url} status: ${res.status}`);
+      }
+
+      return await res.json();
+
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+  getDonutsSet = () => {
+    return this.getResurse('./src/js/goods.json');
+  }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DonutsGoodsService);
+
+
 /***/ })
 
 /******/ 	});
@@ -484,8 +471,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_cellRegulator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/cellRegulator */ "./src/js/modules/cellRegulator.js");
 /* harmony import */ var _modules_wishOnBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/wishOnBox */ "./src/js/modules/wishOnBox.js");
 /* harmony import */ var _modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/capOpenCloseAnimation */ "./src/js/modules/capOpenCloseAnimation.js");
-/* harmony import */ var _donutsService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./donutsService */ "./src/js/donutsService.js");
-/* harmony import */ var _donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./donutsCardsProcessing */ "./src/js/donutsCardsProcessing.js");
+/* harmony import */ var _service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./service/donutsCardsProcessing */ "./src/js/service/donutsCardsProcessing.js");
 
 
 
@@ -495,28 +481,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-document.addEventListener('DOMContentLoaded', async function() {
-    (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left', '.right', '.carousel', '.slid', '.wraper');
-    (0,_modules_cellRegulator__WEBPACK_IMPORTED_MODULE_1__["default"])('.line-conteiner', '.choose', 'hide-donuts-conteiner', '.donut-cell4', 'hide-donut-cell');
-    (0,_modules_wishOnBox__WEBPACK_IMPORTED_MODULE_2__["default"])('.create-ovn-pack', '.wish');
-    (0,_modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__["default"])('.create-ovn-pack', '.cap', '.box-cap', 'animate', 'index', '.back', 'activHiden');
-    
-    try {
-        const data = await (0,_donutsService__WEBPACK_IMPORTED_MODULE_4__["default"])('./src/js/goods.json');
-    
-        if (data === null) {
-          console.error("Data is null, check the request and file contents.");
-        } else {
-          const productsContainer = document.querySelector('.carousel');
-          const productCardsHTML = (0,_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_5__["default"])(data.products);
-    
-          // Вставляем сгенерированные карточки товаров в нужное место в HTML
-          productsContainer.innerHTML = productCardsHTML;
-        }
-    } catch (error) {
-        console.error(error);
-    }
+document.addEventListener('DOMContentLoaded', function () {
+  (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left', '.right', '.carousel', '.slid', '.wraper');
+  (0,_modules_cellRegulator__WEBPACK_IMPORTED_MODULE_1__["default"])('.line-conteiner', '.choose', 'hide-donuts-conteiner', '.donut-cell4', 'hide-donut-cell');
+  (0,_modules_wishOnBox__WEBPACK_IMPORTED_MODULE_2__["default"])('.create-ovn-pack', '.wish');
+  (0,_modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__["default"])('.create-ovn-pack', '.cap', '.box-cap', 'animate', 'index', '.back', 'activHiden');
+  (0,_service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
 })();
 

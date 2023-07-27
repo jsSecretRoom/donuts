@@ -15,4 +15,5 @@ document.addEventListener('DOMContentLoaded', function () {
   closeBoxAnimation('.create-ovn-pack', '.cap', '.box-cap', 'animate', 'index', '.back', 'activHiden');
   processAndInsertProductCards();
   getOneDonutCard();
+
 });

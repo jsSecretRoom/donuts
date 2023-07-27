@@ -292,6 +292,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _donutsService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./donutsService */ "./src/js/service/donutsService.js");
 
+// import filterDataByTab from '../modules/filtersCards' 
 
 class ProductCard {
   constructor(product) {
@@ -383,6 +384,31 @@ async function getOneDonutCard() {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getOneDonutCard);
 
+
+// async function getOneDonutCard(tab) { // Принимаем в качестве аргумента выбранный таб
+//   try {
+//     const donutsGoodsService = new DonutsGoodsService();
+//     const data = await donutsGoodsService.getDonutsSet();
+
+//     if (data === null) {
+//       console.error("Data is null, check the request and file contents.");
+//     } else {
+//       // Фильтруем данные по выбранному табу
+//       const filteredData = filterDataByTab(data.products, tab);
+
+//       // Создаем карточки только для отфильтрованных данных
+//       const productCards = filteredData.map((product) => new ProductCard(product));
+//       const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
+
+//       const productsContainer = document.querySelector('.carousel');
+//       productsContainer.innerHTML = productCardsHTML;
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+// export default getOneDonutCard;
 
 /***/ }),
 
@@ -580,6 +606,7 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__["default"])('.create-ovn-pack', '.cap', '.box-cap', 'animate', 'index', '.back', 'activHiden');
   (0,_service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_service_oneDonutCardsProcessing__WEBPACK_IMPORTED_MODULE_5__["default"])();
+
 });
 })();
 

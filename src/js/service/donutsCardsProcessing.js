@@ -1,4 +1,5 @@
 import DonutsGoodsService from './donutsService';
+// import filterDataByTab from '../modules/filtersCards' 
 
 class ProductCard {
   constructor(product) {
@@ -89,3 +90,29 @@ async function getOneDonutCard() {
 }
 
 export default getOneDonutCard;
+
+
+// async function getOneDonutCard(tab) { // Принимаем в качестве аргумента выбранный таб
+//   try {
+//     const donutsGoodsService = new DonutsGoodsService();
+//     const data = await donutsGoodsService.getDonutsSet();
+
+//     if (data === null) {
+//       console.error("Data is null, check the request and file contents.");
+//     } else {
+//       // Фильтруем данные по выбранному табу
+//       const filteredData = filterDataByTab(data.products, tab);
+
+//       // Создаем карточки только для отфильтрованных данных
+//       const productCards = filteredData.map((product) => new ProductCard(product));
+//       const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
+
+//       const productsContainer = document.querySelector('.carousel');
+//       productsContainer.innerHTML = productCardsHTML;
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+// export default getOneDonutCard;

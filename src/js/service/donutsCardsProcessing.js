@@ -16,9 +16,19 @@ class ProductCard {
   }
 
   createCardHTML() {
-    
     const arrivalOrPopular = this.newArrival ? 'New' : this.popular ? 'Popular' : '';
 
+    let newClass = '';
+    if(arrivalOrPopular === 'Popular'){
+      newClass = 'active'
+    }
+
+    let newnamelangth = this.name.length;
+    let newname = this.name; // Объявляем и инициализируем переменную
+    if (newnamelangth >= 33) {
+      newname = this.name.slice(0, 33) + '...'; // Присваиваем новое значение переменной
+    }
+    
     return `
     <div class="slid" id="${this.id}">
       <div class="cards-conteiner">
@@ -28,7 +38,7 @@ class ProductCard {
           <div class="bascet-button">
             <button class="ad-to-basket">add to basket</button>
           </div>
-          <div class="card-info-indicator">
+          <div class="card-info-indicator ${newClass}">
             <p>${arrivalOrPopular}</p>
           </div>
           <button class="star-feach">
@@ -38,7 +48,7 @@ class ProductCard {
 
         <div class="product-info">
           <div class="description">
-            <p>${this.classification} <span>${this.name}</span></p>
+            <p>${this.classification} <span>${newname}</span></p>
             <p class="desk">${this.description}</p>
           </div>
           <div class="price">
@@ -59,7 +69,7 @@ class ProductCard {
   }
 }
 
-async function processAndInsertProductCards() {
+async function getOneDonutCard() {
   try {
     const donutsGoodsService = new DonutsGoodsService();
     const data = await donutsGoodsService.getDonutsSet();
@@ -78,4 +88,4 @@ async function processAndInsertProductCards() {
   }
 }
 
-export default processAndInsertProductCards;
+export default getOneDonutCard;

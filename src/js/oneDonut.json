@@ -1,0 +1,81 @@
+{
+    "oneDonut": [
+      {
+        "id": 1,
+        "name": "Шоколадный пончик",
+        "price_discounted": 50,
+        "price_original": 70,
+        "photo_link": "./src/img/olredy-donuts/1.png"
+      },
+      {
+        "id": 2,
+        "name": "Клубничный пончик",
+        "price_discounted": 45,
+        "price_original": 60,
+        "photo_link": "./src/img/olredy-donuts/2.png"
+      },
+      {
+        "id": 3,
+        "name": "Ванильный пончик",
+        "price_discounted": 55,
+        "price_original": 75,
+        "photo_link": "./src/img/olredy-donuts/3.png"
+      },
+      {
+        "id": 4,
+        "name": "Карамельный пончик",
+        "price_discounted": 48,
+        "price_original": 65,
+        "photo_link": "./src/img/olredy-donuts/4.png"
+      },
+      {
+        "id": 5,
+        "name": "Кокосовый пончик",
+        "price_discounted": 42,
+        "price_original": 55,
+        "photo_link": "./src/img/olredy-donuts/5.png"
+      },
+      {
+        "id": 6,
+        "name": "Клюквенный пончик",
+        "price_discounted": 47,
+        "price_original": 62,
+        "photo_link": "./src/img/olredy-donuts/6.png"
+      },
+      {
+        "id": 7,
+        "name": "Малиновый пончик",
+        "price_discounted": 51,
+        "price_original": 68,
+        "photo_link": "./src/img/olredy-donuts/7.png"
+      },
+      {
+        "id": 8,
+        "name": "Апельсиновый пончик",
+        "price_discounted": 44,
+        "price_original": 58,
+        "photo_link": "./src/img/olredy-donuts/8.png"
+      },
+      {
+        "id": 9,
+        "name": "Банановый пончик",
+        "price_discounted": 46,
+        "price_original": 61,
+        "photo_link": "./src/img/olredy-donuts/9.png"
+      },
+      {
+        "id": 10,
+        "name": "Классический пончик",
+        "price_discounted": 40,
+        "price_original": 50,
+        "photo_link": "./src/img/olredy-donuts/10.png"
+      },
+      {
+        "id": 11,
+        "name": "Лимонный пончик",
+        "price_discounted": 49,
+        "price_original": 65,
+        "photo_link": "./src/img/olredy-donuts/11.png"
+      }
+    ]
+}

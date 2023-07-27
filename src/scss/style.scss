@@ -368,6 +368,9 @@ body{
                                                             font-size: 18px;
                                                         }
                                                     }
+                                                    .card-info-indicator.active{
+                                                        background-color: #df882b;
+                                                    }
                                                     .star-feach{
                                                         position: absolute;
                                                         z-index: 1;
@@ -389,7 +392,7 @@ body{
                                                     border-radius:  0 0 10px 10px;
                                                     padding: 10px;
                                                     width: 300px;
-                                                    height: 150px;
+                                                    height: 155px;
                                                     .description {
                                                         
                                                         p{
@@ -419,16 +422,17 @@ body{
                                                         }
                                                         
                                                         .price-conteiner{
-                                                            
+                                                            padding: 5px;
                                                             .discount-price {
                                                                 font-size: 35px;
                                                                 color: #f2083b;
-                                                                padding: 5px;
+                                                                padding: 2px;
                                                             }
                                                             .real-price {
                                                                 font-size: 20px;
                                                                 text-decoration: line-through;
                                                                 text-align: end;
+                                                                padding: 2px;
                                                             }
                                                         }
                                                     }
@@ -860,10 +864,10 @@ body{
 
                                 .wraper-conteiner {
                                     overflow-x: hidden;
-                                    .wraper {
+                                    .wraper1 {
                                         position: relative;
                                         
-                                        .left, .right {
+                                        .left1, .right1 {
                                             position: absolute;
                                             top: 50%;
                                             transform: translateY(-50%);
@@ -881,17 +885,17 @@ body{
                                                 }
                                             }
                                         }
-                                        .right {
+                                        .right1 {
                                             right: 20px;
                                         }
                                         
-                                        .left {
+                                        .left1 {
                                             left: 20px;
                                         }
-                                        .carousel {
+                                        .carousel1 {
                                             display: flex;
                                             margin: 10px;
-                                            .slid {
+                                            .slid1 {
                                                 flex: 0 0 auto;
                                                 height: 100%;
                                                 object-fit: cover;
@@ -915,7 +919,9 @@ body{
                                                     display: flex;
                                                     border-radius: 0 0 10px 10px;
                                                     justify-content: space-around;
+                                                    flex-direction: column;
                                                     padding: 5px;
+                                                    height: 140px;
                                                     .donut-naim{
                                                         p{
                                                             font-size: 20px;
@@ -923,6 +929,9 @@ body{
                                                         }
                                                     }
                                                     .price{
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: space-around;
                                                         .real-price {
                                                             font-size: 30px;
                                                             color: #f2083b;
@@ -932,6 +941,26 @@ body{
                                                             text-decoration: line-through;
                                                         }
                                                     }
+                                                    .count-indicator {
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: space-around;
+                                                        padding: 10px 0;
+                                                        .left-count, .right-count{
+                                                            border-radius: 10px;
+                                                            border: 1px solid #111f54;
+                                                            background-color: #fd3700a8;
+                                                            img{
+                                                                height: 50px;
+                                                                width: 40px;
+                                                            }
+                                                            
+                                                        }
+                                                        .count {
+                                                            font-size: 40px;
+                                                        }
+                                                    }
+                                                    
                                                     
                                                 }
                                             }

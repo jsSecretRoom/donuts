@@ -17,5 +17,8 @@ class DonutsGoodsService {
   getDonutsSet = () => {
     return this.getResurse('./src/js/goods.json');
   }
+  getOneDonuts = () => {
+    return this.getResurse('./src/js/oneDonut.json');
+  }
 }
 export default DonutsGoodsService;

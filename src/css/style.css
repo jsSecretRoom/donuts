@@ -373,6 +373,9 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .card-info-indicator p {
   font-size: 18px;
 }
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .card-info-indicator.active {
+  background-color: #df882b;
+}
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .star-feach {
   position: absolute;
   z-index: 1;
@@ -393,7 +396,7 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   border-radius: 0 0 10px 10px;
   padding: 10px;
   width: 300px;
-  height: 150px;
+  height: 155px;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info .description p {
   font-size: 20px;
@@ -416,15 +419,19 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   font-size: 20px;
   padding: 5px;
 }
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info .price .price-conteiner {
+  padding: 5px;
+}
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info .price .price-conteiner .discount-price {
   font-size: 35px;
   color: #f2083b;
-  padding: 5px;
+  padding: 2px;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info .price .price-conteiner .real-price {
   font-size: 20px;
   text-decoration: line-through;
   text-align: end;
+  padding: 2px;
 }
 body .continer .content-continer main .donuts-shop .will-call {
   display: flex;
@@ -816,10 +823,10 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .ch
 body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner {
   overflow-x: hidden;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 {
   position: relative;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .left, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .right {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .left1, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .right1 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -828,30 +835,30 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .ch
   cursor: pointer;
   z-index: 1;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .left img, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .right img {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .left1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .right1 img {
   width: 40px;
 }
 @media (min-width: 568px) {
-  body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .left img, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .right img {
+  body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .left1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .right1 img {
     width: 50px;
   }
 }
 @media (min-width: 1024px) {
-  body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .left img, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .right img {
+  body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .left1 img, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .right1 img {
     width: 70px;
   }
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .right {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .right1 {
   right: 20px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .left {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .left1 {
   left: 20px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .carousel {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 {
   display: flex;
   margin: 10px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .carousel .slid {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 {
   flex: 0 0 auto;
   height: 100%;
   -o-object-fit: cover;
@@ -864,32 +871,57 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .ch
   width: 14.2857142857%;
   padding: 5px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .carousel .slid .img-one-donut {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .img-one-donut {
   background-color: rgb(105, 99, 189);
   border-radius: 10px 10px 0 0;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .carousel .slid .img-one-donut img {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .img-one-donut img {
   width: 100%;
   height: 220px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .carousel .slid .onlu-donut-conteiner {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner {
   background-color: cadetblue;
   display: flex;
   border-radius: 0 0 10px 10px;
   justify-content: space-around;
+  flex-direction: column;
   padding: 5px;
+  height: 140px;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .carousel .slid .onlu-donut-conteiner .donut-naim p {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .donut-naim p {
   font-size: 20px;
   color: white;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .carousel .slid .onlu-donut-conteiner .price .real-price {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .price {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .price .real-price {
   font-size: 30px;
   color: #f2083b;
 }
-body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper .carousel .slid .onlu-donut-conteiner .price .second-price {
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .price .second-price {
   font-size: 20px;
   text-decoration: line-through;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .left-count, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .right-count {
+  border-radius: 10px;
+  border: 1px solid #111f54;
+  background-color: rgba(253, 55, 0, 0.6588235294);
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .left-count img, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .right-count img {
+  height: 50px;
+  width: 40px;
+}
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .count {
+  font-size: 40px;
 }
 body .continer .content-continer footer .navigation {
   height: 330px;

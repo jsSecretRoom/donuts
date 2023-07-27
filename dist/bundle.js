@@ -78,92 +78,92 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 //donuts-cells-regulator
-function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell){
-
+function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell) {
     const lineConteiners = document.querySelectorAll(lineConteiner);
     const buttonsBox = document.querySelectorAll(BtnBox);
-
-    buttonsBox.forEach( function(button, i) {
-        button.addEventListener('click', function(){
-            const cells = document.querySelectorAll(donutCell);
-            if (i === 0) {
-                
-                lineConteiners.forEach(function (line, j) {
-
-                    if (j === 0) {
-                        cells.forEach(function(cell, i){
-                            if(i === 0){
-                                cell.classList.add(hideCell)
-                            }
-                        });
-                    } else if (j === 1) {
-                        cells.forEach(function(cell, i){
-                            if(i === 1){
-                                cell.classList.add(hideCell)
-                            }
-                        });
-                    } else if (j === 2 || j === 3) {
-                        line.classList.add(hideLine);
-                    }
-                });
-            }else if (i === 1) {
-                lineConteiners.forEach(function (line, j) {
-                  
-                    if (j === 0) {
-                        cells.forEach(function(cell, i){
-                            if(i === 0){
-                                cell.classList.add(hideCell)
-                            }
-                        });
-                    } else if (j === 1) {
-                        cells.forEach(function(cell, i){
-                            if(i === 1){
-                                cell.classList.add(hideCell)
-                            }
-                        });
-                    }else if (j === 2) {
-                        cells.forEach(function(cell, i){
-                            if(i === 2){
-                                cell.classList.add(hideCell)
-                            }
-                        });
-                        if(line.classList.contains(hideLine)){
-                            line.classList.remove(hideLine);
-                        }
-                    } else if (j === 3) {
-                        line.classList.add(hideLine);
-                    }
-                });
-            }else if (i === 2) {
-                lineConteiners.forEach(function (line, j) {
-                    if (j === 2 && line.classList.contains(hideLine)) {
-                        line.classList.remove(hideLine);
-                    }
-                    if (j === 3) {
-                        line.classList.add(hideLine);
-                    }
-                    cells.forEach(function(cell, i){
-                        if(cell.classList.contains(hideCell)){
-                            cell.classList.remove(hideCell)
-                        }
-                    });
-                });
-            }else if (i === 3) {
-                lineConteiners.forEach(function (line, j) {
-                    if (line.classList.contains(hideLine)) {
-                        line.classList.toggle(hideLine);
-                    }
-                    cells.forEach(cell =>{
-                        if(cell.classList.contains(hideCell)){
-                            cell.classList.toggle(hideCell)
-                        }
-                    });
-                });
-            }
+  
+    buttonsBox.forEach(function(button, i) {
+      button.addEventListener('click', function() {
+        // Удаляем класс "active" со всех кнопок перед добавлением его к активной кнопке
+        buttonsBox.forEach(function(btn) {
+          btn.classList.remove('active');
         });
+  
+        // Добавляем класс "active" к активной кнопке
+        button.classList.add('active');
+  
+        // Остальная часть вашего кода для применения стилей к элементам
+        const cells = document.querySelectorAll(donutCell);
+        lineConteiners.forEach(function(line, j) {
+          if (i === 0) {
+            if (j === 0) {
+              cells.forEach(function(cell, i) {
+                if (i === 0) {
+                  cell.classList.add(hideCell);
+                }
+              });
+            } else if (j === 1) {
+              cells.forEach(function(cell, i) {
+                if (i === 1) {
+                  cell.classList.add(hideCell);
+                }
+              });
+            } else if (j === 2 || j === 3) {
+              line.classList.add(hideLine);
+            }
+          } else if (i === 1) {
+            if (j === 0) {
+              cells.forEach(function(cell, i) {
+                if (i === 0) {
+                  cell.classList.add(hideCell);
+                }
+              });
+            } else if (j === 1) {
+              cells.forEach(function(cell, i) {
+                if (i === 1) {
+                  cell.classList.add(hideCell);
+                }
+              });
+            } else if (j === 2) {
+              cells.forEach(function(cell, i) {
+                if (i === 2) {
+                  cell.classList.add(hideCell);
+                }
+              });
+              if (line.classList.contains(hideLine)) {
+                line.classList.remove(hideLine);
+              }
+            } else if (j === 3) {
+              line.classList.add(hideLine);
+            }
+          } else if (i === 2) {
+            if (j === 2 && line.classList.contains(hideLine)) {
+              line.classList.remove(hideLine);
+            }
+            if (j === 3) {
+              line.classList.add(hideLine);
+            }
+            cells.forEach(function(cell) {
+              if (cell.classList.contains(hideCell)) {
+                cell.classList.remove(hideCell);
+              }
+            });
+          } else if (i === 3) {
+            if (line.classList.contains(hideLine)) {
+              line.classList.toggle(hideLine);
+            }
+            cells.forEach(function(cell) {
+              if (cell.classList.contains(hideCell)) {
+                cell.classList.toggle(hideCell);
+              }
+            });
+          }
+        });
+      });
     });
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chengeDonutBoxSize);
+  }
+  
+  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chengeDonutBoxSize);
 
 /***/ }),
 
@@ -251,25 +251,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//wish and put in text
-function wishAfterClick(createButton, wishText){
+function wishAfterClick(createButton, wishText) {
     const button = document.querySelector(createButton);
     const wishContainer = document.querySelector(wishText);
-
+  
     let isBonAppetit = false;
-
+    let isButtonDisabled = false; // Флаг, указывающий, что кнопка заблокирована
+  
     button.addEventListener('click', function() {
+      if (!isButtonDisabled) { // Проверяем, не заблокирована ли уже кнопка
+        isButtonDisabled = true; // Блокируем кнопку
+        setTimeout(function() {
+          isButtonDisabled = false; // После 2 секунд снимаем блокировку с кнопки
+        }, 2000);
+  
         if (isBonAppetit) {
-            const newWishContent = '<p>Put in me!</p>';
-            wishContainer.innerHTML = newWishContent;
+          const newWishContent = '<p>Put in me!</p>';
+          wishContainer.innerHTML = newWishContent;
         } else {
-            const newWishContent = '<p>Bon appetit!</p>';
-            wishContainer.innerHTML = newWishContent;
+          const newWishContent = '<p>Bon appetit!</p>';
+          wishContainer.innerHTML = newWishContent;
         }
         isBonAppetit = !isBonAppetit;
+      }
     });
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (wishAfterClick);
+  }
+  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (wishAfterClick);
 
 /***/ }),
 
@@ -302,9 +309,19 @@ class ProductCard {
   }
 
   createCardHTML() {
-    
     const arrivalOrPopular = this.newArrival ? 'New' : this.popular ? 'Popular' : '';
 
+    let newClass = '';
+    if(arrivalOrPopular === 'Popular'){
+      newClass = 'active'
+    }
+
+    let newnamelangth = this.name.length;
+    let newname = this.name; // Объявляем и инициализируем переменную
+    if (newnamelangth >= 33) {
+      newname = this.name.slice(0, 33) + '...'; // Присваиваем новое значение переменной
+    }
+    
     return `
     <div class="slid" id="${this.id}">
       <div class="cards-conteiner">
@@ -314,7 +331,7 @@ class ProductCard {
           <div class="bascet-button">
             <button class="ad-to-basket">add to basket</button>
           </div>
-          <div class="card-info-indicator">
+          <div class="card-info-indicator ${newClass}">
             <p>${arrivalOrPopular}</p>
           </div>
           <button class="star-feach">
@@ -324,7 +341,7 @@ class ProductCard {
 
         <div class="product-info">
           <div class="description">
-            <p>${this.classification} <span>${this.name}</span></p>
+            <p>${this.classification} <span>${newname}</span></p>
             <p class="desk">${this.description}</p>
           </div>
           <div class="price">
@@ -345,7 +362,7 @@ class ProductCard {
   }
 }
 
-async function processAndInsertProductCards() {
+async function getOneDonutCard() {
   try {
     const donutsGoodsService = new _donutsService__WEBPACK_IMPORTED_MODULE_0__["default"]();
     const data = await donutsGoodsService.getDonutsSet();
@@ -364,7 +381,7 @@ async function processAndInsertProductCards() {
   }
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (processAndInsertProductCards);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getOneDonutCard);
 
 
 /***/ }),
@@ -398,8 +415,81 @@ class DonutsGoodsService {
   getDonutsSet = () => {
     return this.getResurse('./src/js/goods.json');
   }
+  getOneDonuts = () => {
+    return this.getResurse('./src/js/oneDonut.json');
+  }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DonutsGoodsService);
+
+
+/***/ }),
+
+/***/ "./src/js/service/oneDonutCardsProcessing.js":
+/*!***************************************************!*\
+  !*** ./src/js/service/oneDonutCardsProcessing.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _donutsService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./donutsService */ "./src/js/service/donutsService.js");
+
+
+class OneDonutCard {
+  constructor(product) {
+    this.id = product.id;
+    this.name = product.name;
+    this.priceDiscounted = product.price_discounted;
+    this.priceOriginal = product.price_original;
+    this.photoLink = product.photo_link;
+}
+createCardHTML() {
+    return `
+    <div class="slid1" id="${this.id}">
+        <div class="img-one-donut">
+        <img src="${this.photoLink}" alt="" id="draggablePhoto1" draggable="true" ondragstart="drag(event)">
+        </div>
+        <div class="onlu-donut-conteiner">
+        <div class="donut-naim">
+            <p>${this.name}</p>
+        </div>
+        <div class="price">
+            <p class="real-price">${ this.priceDiscounted}$</p>
+            <p class="second-price">${this.priceOriginal}$</p>
+        </div>
+        <div class="count-indicator">
+            <button class="left-count"><img src="./src/icons/Expand_left.svg" alt=""></button>
+            <div class="count">0</div>
+            <button class="right-count"><img src="./src/icons/Expand_Right.svg" alt=""></button>
+        </div>
+        </div>
+    </div>
+    `;
+  }
+}
+
+async function processAndInsertProductCards() {
+  try {
+    const donutsGoodsService = new _donutsService__WEBPACK_IMPORTED_MODULE_0__["default"]();
+    const data = await donutsGoodsService.getOneDonuts();
+
+    if (data === null) {
+      console.error("Data is null, check the request and file contents.");
+    } else {
+      const productCards = data.oneDonut.map((product) => new OneDonutCard(product));
+      const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
+
+      const productsContainer = document.querySelector('.carousel1');
+      productsContainer.innerHTML = productCardsHTML;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (processAndInsertProductCards);
 
 
 /***/ })
@@ -472,6 +562,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_wishOnBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/wishOnBox */ "./src/js/modules/wishOnBox.js");
 /* harmony import */ var _modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/capOpenCloseAnimation */ "./src/js/modules/capOpenCloseAnimation.js");
 /* harmony import */ var _service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./service/donutsCardsProcessing */ "./src/js/service/donutsCardsProcessing.js");
+/* harmony import */ var _service_oneDonutCardsProcessing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./service/oneDonutCardsProcessing */ "./src/js/service/oneDonutCardsProcessing.js");
 
 
 
@@ -483,10 +574,12 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function () {
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left', '.right', '.carousel', '.slid', '.wraper');
+  (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left1', '.right1', '.carousel1', '.slid1', '.wraper1');
   (0,_modules_cellRegulator__WEBPACK_IMPORTED_MODULE_1__["default"])('.line-conteiner', '.choose', 'hide-donuts-conteiner', '.donut-cell4', 'hide-donut-cell');
   (0,_modules_wishOnBox__WEBPACK_IMPORTED_MODULE_2__["default"])('.create-ovn-pack', '.wish');
   (0,_modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__["default"])('.create-ovn-pack', '.cap', '.box-cap', 'animate', 'index', '.back', 'activHiden');
   (0,_service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  (0,_service_oneDonutCardsProcessing__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
 })();
 

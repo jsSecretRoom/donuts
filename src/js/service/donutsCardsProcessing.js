@@ -1,6 +1,7 @@
 import DonutsGoodsService from './donutsService';
-// import filterDataByTab from '../modules/filtersCards' 
 
+import tabFiltr from '../modules/filtersCards'
+import tabActive from '../modules/tabsModule'
 class ProductCard {
   constructor(product) {
     this.id = product.id;
@@ -54,8 +55,8 @@ class ProductCard {
           </div>
           <div class="price">
             <div class="info">
-              <p class="weight">${this.weight_grams}</p>
-              <p class="calories">${this.calories}</p>
+              <p class="weight">${this.weight_grams}g</p>
+              <p class="calories">${this.calories}kkal</p>
             </div>
             <div class="price-conteiner">
               <p class="discount-price">${this.realPrice}$</p>
@@ -70,6 +71,12 @@ class ProductCard {
   }
 }
 
+function renderProductCards(cards) {
+  const productCardsHTML = cards.map((card) => card.createCardHTML()).join('');
+  const productsContainer = document.querySelector('.carousel');
+  productsContainer.innerHTML = productCardsHTML;
+}
+
 async function getOneDonutCard() {
   try {
     const donutsGoodsService = new DonutsGoodsService();
@@ -79,10 +86,19 @@ async function getOneDonutCard() {
       console.error("Data is null, check the request and file contents.");
     } else {
       const productCards = data.products.map((product) => new ProductCard(product));
-      const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
 
-      const productsContainer = document.querySelector('.carousel');
-      productsContainer.innerHTML = productCardsHTML;
+      // Используем tabActive с колбэком для отслеживания изменений activeTabIndex
+      tabActive('.tab-button', (activeTabIndex) => {
+        // Вот здесь вы можете использовать значение activeTabIndex для необходимых действий
+        // Например, перерисовать карточки товаров с учетом активного таба
+        const filterCardS = tabFiltr(productCards, activeTabIndex);
+        renderProductCards(filterCardS);
+      });
+
+      // Выводим карточки товаров для начального активного таба
+      const initialActiveTabIndex = 0;
+      const filterCardS = tabFiltr(productCards, initialActiveTabIndex);
+      renderProductCards(filterCardS);
     }
   } catch (error) {
     console.error(error);
@@ -90,29 +106,3 @@ async function getOneDonutCard() {
 }
 
 export default getOneDonutCard;
-
-
-// async function getOneDonutCard(tab) { // Принимаем в качестве аргумента выбранный таб
-//   try {
-//     const donutsGoodsService = new DonutsGoodsService();
-//     const data = await donutsGoodsService.getDonutsSet();
-
-//     if (data === null) {
-//       console.error("Data is null, check the request and file contents.");
-//     } else {
-//       // Фильтруем данные по выбранному табу
-//       const filteredData = filterDataByTab(data.products, tab);
-
-//       // Создаем карточки только для отфильтрованных данных
-//       const productCards = filteredData.map((product) => new ProductCard(product));
-//       const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
-
-//       const productsContainer = document.querySelector('.carousel');
-//       productsContainer.innerHTML = productCardsHTML;
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// export default getOneDonutCard;

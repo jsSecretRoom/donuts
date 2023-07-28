@@ -167,6 +167,46 @@ function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell
 
 /***/ }),
 
+/***/ "./src/js/modules/filtersCards.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/filtersCards.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function tabFiltr(cards, activeTab) {
+    // Если активный таб - первый таб и popular: true, то происходит фильтрация
+    
+    if (activeTab === 0) {
+        return cards;
+    }
+    if (activeTab === 1) {
+        return cards.filter(card => card.popular === true);
+    }
+    if (activeTab === 2) {
+        return cards.filter(card => card.newArrival === true);
+    }
+    if (activeTab === 3) {
+        return cards.filter(card => card.classification === "Fruity");
+    }
+    if (activeTab === 4) {
+        return cards.filter(card => card.classification === "Holiday");
+    }
+    if (activeTab === 5) {
+        return cards.filter(card => card.classification === "Classics");
+    }
+    
+    
+    
+    return cards;
+}
+  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabFiltr);
+
+/***/ }),
+
 /***/ "./src/js/modules/slider.js":
 /*!**********************************!*\
   !*** ./src/js/modules/slider.js ***!
@@ -241,6 +281,45 @@ function sliderSwiper(buttonLeft, buttonRight, carousel, slides, wrapper) {
 
 /***/ }),
 
+/***/ "./src/js/modules/tabsModule.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/tabsModule.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function tabActive(tabs, callback) {
+    const tabsButons = document.querySelectorAll(tabs);
+    let activeTabIndex = 5; // Инициализируем индекс активного таба
+  
+    tabsButons.forEach((tab, index) => {
+      tab.addEventListener('click', function () {
+        // Удаляем класс активного таба у всех табов
+        tabsButons.forEach(tab => tab.classList.remove('active'));
+  
+        // Добавляем класс активного таба только к тому, на который произошло нажатие
+        this.classList.add('active');
+  
+        // Обновляем индекс активного таба
+        activeTabIndex = index;
+  
+        // Вызываем колбэк, чтобы оповестить об изменении индекса
+        if (typeof callback === 'function') {
+          callback(activeTabIndex);
+        }
+      });
+    });
+  }
+  
+  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabActive);
+
+
+
+/***/ }),
+
 /***/ "./src/js/modules/wishOnBox.js":
 /*!*************************************!*\
   !*** ./src/js/modules/wishOnBox.js ***!
@@ -291,8 +370,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _donutsService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./donutsService */ "./src/js/service/donutsService.js");
+/* harmony import */ var _modules_filtersCards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/filtersCards */ "./src/js/modules/filtersCards.js");
+/* harmony import */ var _modules_tabsModule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/tabsModule */ "./src/js/modules/tabsModule.js");
 
-// import filterDataByTab from '../modules/filtersCards' 
+
+
 
 class ProductCard {
   constructor(product) {
@@ -347,8 +429,8 @@ class ProductCard {
           </div>
           <div class="price">
             <div class="info">
-              <p class="weight">${this.weight_grams}</p>
-              <p class="calories">${this.calories}</p>
+              <p class="weight">${this.weight_grams}g</p>
+              <p class="calories">${this.calories}kkal</p>
             </div>
             <div class="price-conteiner">
               <p class="discount-price">${this.realPrice}$</p>
@@ -363,6 +445,12 @@ class ProductCard {
   }
 }
 
+function renderProductCards(cards) {
+  const productCardsHTML = cards.map((card) => card.createCardHTML()).join('');
+  const productsContainer = document.querySelector('.carousel');
+  productsContainer.innerHTML = productCardsHTML;
+}
+
 async function getOneDonutCard() {
   try {
     const donutsGoodsService = new _donutsService__WEBPACK_IMPORTED_MODULE_0__["default"]();
@@ -372,10 +460,19 @@ async function getOneDonutCard() {
       console.error("Data is null, check the request and file contents.");
     } else {
       const productCards = data.products.map((product) => new ProductCard(product));
-      const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
 
-      const productsContainer = document.querySelector('.carousel');
-      productsContainer.innerHTML = productCardsHTML;
+      // Используем tabActive с колбэком для отслеживания изменений activeTabIndex
+      (0,_modules_tabsModule__WEBPACK_IMPORTED_MODULE_2__["default"])('.tab-button', (activeTabIndex) => {
+        // Вот здесь вы можете использовать значение activeTabIndex для необходимых действий
+        // Например, перерисовать карточки товаров с учетом активного таба
+        const filterCardS = (0,_modules_filtersCards__WEBPACK_IMPORTED_MODULE_1__["default"])(productCards, activeTabIndex);
+        renderProductCards(filterCardS);
+      });
+
+      // Выводим карточки товаров для начального активного таба
+      const initialActiveTabIndex = 0;
+      const filterCardS = (0,_modules_filtersCards__WEBPACK_IMPORTED_MODULE_1__["default"])(productCards, initialActiveTabIndex);
+      renderProductCards(filterCardS);
     }
   } catch (error) {
     console.error(error);
@@ -383,32 +480,6 @@ async function getOneDonutCard() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getOneDonutCard);
-
-
-// async function getOneDonutCard(tab) { // Принимаем в качестве аргумента выбранный таб
-//   try {
-//     const donutsGoodsService = new DonutsGoodsService();
-//     const data = await donutsGoodsService.getDonutsSet();
-
-//     if (data === null) {
-//       console.error("Data is null, check the request and file contents.");
-//     } else {
-//       // Фильтруем данные по выбранному табу
-//       const filteredData = filterDataByTab(data.products, tab);
-
-//       // Создаем карточки только для отфильтрованных данных
-//       const productCards = filteredData.map((product) => new ProductCard(product));
-//       const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
-
-//       const productsContainer = document.querySelector('.carousel');
-//       productsContainer.innerHTML = productCardsHTML;
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// export default getOneDonutCard;
 
 /***/ }),
 
@@ -597,7 +668,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left', '.right', '.carousel', '.slid', '.wraper');
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left1', '.right1', '.carousel1', '.slid1', '.wraper1');
@@ -606,6 +676,7 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__["default"])('.create-ovn-pack', '.cap', '.box-cap', 'animate', 'index', '.back', 'activHiden');
   (0,_service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_4__["default"])();
   (0,_service_oneDonutCardsProcessing__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  
 
 });
 })();

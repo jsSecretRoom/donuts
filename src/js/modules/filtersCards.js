@@ -1,9 +1,27 @@
-// export function filterDataByTab(data, tab) {
-//     return data.filter(product => {
-//       // Здесь можно указать условия фильтрации в зависимости от выбранного таба
-//       // Например, если tab === 'new', то вернуть только новинки (newArrival === true)
-//       // А если tab === 'popular', то вернуть только популярные товары (popular === true)
-//       // В данном примере мы просто возвращаем все товары без фильтрации.
-//       return true;
-//     });
-// }
+function tabFiltr(cards, activeTab) {
+    // Если активный таб - первый таб и popular: true, то происходит фильтрация
+    
+    if (activeTab === 0) {
+        return cards;
+    }
+    if (activeTab === 1) {
+        return cards.filter(card => card.popular === true);
+    }
+    if (activeTab === 2) {
+        return cards.filter(card => card.newArrival === true);
+    }
+    if (activeTab === 3) {
+        return cards.filter(card => card.classification === "Fruity");
+    }
+    if (activeTab === 4) {
+        return cards.filter(card => card.classification === "Holiday");
+    }
+    if (activeTab === 5) {
+        return cards.filter(card => card.classification === "Classics");
+    }
+    
+    
+    
+    return cards;
+}
+  export default tabFiltr;

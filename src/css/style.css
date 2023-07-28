@@ -259,16 +259,25 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categori
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories ul {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
-body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories ul li {
+body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories ul .tab-button {
   padding: 10px 10px;
   color: white;
   font-size: 22px;
   text-shadow: -0.5px 1px 0px #cb8204;
   transition: font-size 0.3s ease;
   text-align: center;
+  background: none;
 }
-body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories ul li:hover {
+body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories ul .tab-button:hover {
+  color: rgb(52, 85, 255);
+  font-size: 30px;
+  border: 1px solid #DBABAB;
+  border-radius: 50px;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories .categories ul .tab-button.active {
   color: rgb(52, 85, 255);
   font-size: 30px;
   border: 1px solid #DBABAB;
@@ -432,6 +441,9 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   text-decoration: line-through;
   text-align: end;
   padding: 2px;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid.active-class {
+  display: none;
 }
 body .continer .content-continer main .donuts-shop .will-call {
   display: flex;

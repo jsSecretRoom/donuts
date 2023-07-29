@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donuts</title>
+  <title>Divine Donuts</title>
   <link rel="stylesheet" href="./src/css/reset.css">
   <link rel="stylesheet" href="./src/css/style.css">
   <script src="./dist/bundle.js" defer></script>
@@ -13,7 +13,19 @@
     <div class="content-continer">
       <header>
         <nav>
-          <a href="">Choose your city</a>
+          <div class="dropdown">
+            <div class="chouseCyti">
+              <p>City:</p>
+              <button class="dropbtn" id="selectedCity">:Select a City:</button>
+            </div>
+            <div class="dropdown-content" id="cityList">
+              <a href="#">New York</a>
+              <a href="#">Los Angeles</a>
+              <a href="#">Chicago</a>
+              <a href="#">Houston</a>
+              <a href="#">Philadelphia</a>
+            </div>
+          </div>
           <a href="">ORDER</a>
           <a href="">CREATE A SET</a>
         </nav>

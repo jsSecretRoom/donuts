@@ -32,6 +32,57 @@ body .continer .content-continer header nav {
   text-align: center;
   animation: fadeInDown 1s ease-in-out;
 }
+body .continer .content-continer header nav .dropdown {
+  position: relative;
+  display: inline-block;
+}
+body .continer .content-continer header nav .dropdown:hover {
+  display: block;
+}
+body .continer .content-continer header nav .dropdown .chouseCyti {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .continer .content-continer header nav .dropdown .chouseCyti .dropbtn, body .continer .content-continer header nav .dropdown .chouseCyti p {
+  background: none;
+  color: white;
+  padding: 10px;
+  font-size: 40px;
+  border: none;
+  cursor: pointer;
+  transition: font-size 0.3s ease;
+}
+body .continer .content-continer header nav .dropdown .chouseCyti .dropbtn:hover {
+  color: rgb(52, 85, 255);
+  font-size: 44px;
+}
+body .continer .content-continer header nav .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  left: 220px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 4;
+}
+body .continer .content-continer header nav .dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  border-radius: 10px;
+  display: block;
+}
+body .continer .content-continer header nav .dropdown .dropdown-content a:hover {
+  color: rgb(52, 85, 255);
+}
+body .continer .content-continer header nav .dropdown .dropdown-content:hover {
+  display: block;
+}
+body .continer .content-continer header nav .dropdown .dropdown-content.show {
+  display: block;
+}
 body .continer .content-continer header nav a {
   color: white;
   font-size: 40px;
@@ -65,7 +116,7 @@ body .continer .content-continer header .logo {
   transition: font-size 0.3s ease;
 }
 body .continer .content-continer header .logo:hover {
-  color: rgb(98, 3, 221);
+  color: rgb(52, 85, 255);
   font-size: 75px;
 }
 body .continer .content-continer header .logo p {
@@ -357,8 +408,8 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .bascet-button .ad-to-basket:hover {
   background-color: #ee7d1b;
-  border: 2px solid purple;
-  color: #541146;
+  border: 2px solid rgb(52, 85, 255);
+  color: rgb(52, 85, 255);
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .card-info-indicator {
   position: absolute;
@@ -465,7 +516,7 @@ body .continer .content-continer main .donuts-shop .will-call .order p {
   font-size: 60px;
 }
 body .continer .content-continer main .donuts-shop .will-call .order p:hover {
-  color: rgb(11, 255, 80);
+  color: rgb(52, 85, 255);
 }
 body .continer .content-continer main .donuts-shop .will-call .order .bag-img {
   background: white;
@@ -491,6 +542,9 @@ body .continer .content-continer main .donuts-shop .will-call .order .bag-img .c
   font-size: 20px;
   color: #000000;
 }
+body .continer .content-continer main .donuts-shop .will-call .order .bag-img:hover {
+  background: rgb(52, 85, 255);
+}
 body .continer .content-continer main .donuts-shop .will-call p {
   color: white;
   font-size: 60px;
@@ -505,7 +559,7 @@ body .continer .content-continer main .donuts-shop .will-call .call a {
   padding: 0 50px;
 }
 body .continer .content-continer main .donuts-shop .will-call .call a:hover {
-  color: rgb(255, 11, 11);
+  color: rgb(52, 85, 255);
 }
 body .continer .content-continer main .donuts-shop .create-set {
   background-color: #B50E99;
@@ -543,7 +597,7 @@ body .continer .content-continer main .donuts-shop .create-set .create .choose-b
   font-size: 70px;
 }
 body .continer .content-continer main .donuts-shop .create-set .create .choose-box .choose.active {
-  background-color: #8383FF;
+  background: rgb(52, 85, 255);
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer {
   background: url("../img/bacground/2.svg") no-repeat center center;
@@ -821,7 +875,7 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   font-size: 40px;
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .create-price-conteiner .create-ovn-pack:hover {
-  background-color: #a910dc;
+  background: rgb(52, 85, 255);
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .box .bill-box .create-price-conteiner p {
   color: rgb(254, 6, 60);
@@ -933,6 +987,9 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .ch
   height: 50px;
   width: 40px;
 }
+body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .left-count:hover, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .right-count:hover {
+  background-color: rgb(52, 85, 255);
+}
 body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .count {
   font-size: 40px;
 }
@@ -984,7 +1041,7 @@ body .continer .content-continer footer .navigation .logo {
   transition: font-size 0.3s ease;
 }
 body .continer .content-continer footer .navigation .logo:hover {
-  color: rgb(98, 3, 221);
+  color: rgb(52, 85, 255);
   font-size: 75px;
 }
 body .continer .content-continer footer .navigation .logo p {
@@ -1020,6 +1077,6 @@ body .continer .content-continer footer .info-conpany .column p {
   transition: font-size 0.3s ease;
 }
 body .continer .content-continer footer .info-conpany .column p:hover {
-  color: rgb(98, 3, 221);
+  color: rgb(52, 85, 255);
   font-size: 30px;
 }

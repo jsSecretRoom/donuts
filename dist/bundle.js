@@ -210,6 +210,38 @@ function tabFiltr(cards, activeTab, searchQuery) {
 
 /***/ }),
 
+/***/ "./src/js/modules/sellectCyti.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/sellectCyti.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function selectCity(city) {
+    const cityList = document.getElementById("cityList");
+    const selectedCityButton = document.getElementById("selectedCity");
+
+    // Показать/скрыть выпадающее меню при клике на кнопку
+    selectedCityButton.addEventListener("click", function() {
+        cityList.classList.toggle("show");
+    });
+
+    // Обработчик событий для выбора города
+    cityList.addEventListener("click", function(event) {
+        if (event.target.tagName === "A") {
+            const selectedCity = event.target.textContent;
+            selectedCityButton.textContent = selectedCity;
+            cityList.classList.remove("show");
+        }
+    });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (selectCity);
+
+/***/ }),
+
 /***/ "./src/js/modules/slider.js":
 /*!**********************************!*\
   !*** ./src/js/modules/slider.js ***!
@@ -701,8 +733,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_cellRegulator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/cellRegulator */ "./src/js/modules/cellRegulator.js");
 /* harmony import */ var _modules_wishOnBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/wishOnBox */ "./src/js/modules/wishOnBox.js");
 /* harmony import */ var _modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/capOpenCloseAnimation */ "./src/js/modules/capOpenCloseAnimation.js");
-/* harmony import */ var _service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./service/donutsCardsProcessing */ "./src/js/service/donutsCardsProcessing.js");
-/* harmony import */ var _service_oneDonutCardsProcessing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./service/oneDonutCardsProcessing */ "./src/js/service/oneDonutCardsProcessing.js");
+/* harmony import */ var _modules_sellectCyti__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/sellectCyti */ "./src/js/modules/sellectCyti.js");
+/* harmony import */ var _service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./service/donutsCardsProcessing */ "./src/js/service/donutsCardsProcessing.js");
+/* harmony import */ var _service_oneDonutCardsProcessing__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./service/oneDonutCardsProcessing */ "./src/js/service/oneDonutCardsProcessing.js");
+
 
 
 
@@ -717,9 +751,9 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_modules_cellRegulator__WEBPACK_IMPORTED_MODULE_1__["default"])('.line-conteiner', '.choose', 'hide-donuts-conteiner', '.donut-cell4', 'hide-donut-cell');
   (0,_modules_wishOnBox__WEBPACK_IMPORTED_MODULE_2__["default"])('.create-ovn-pack', '.wish');
   (0,_modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__["default"])('.create-ovn-pack', '.cap', '.box-cap', 'animate', 'index', '.back', 'activHiden');
-  (0,_service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_4__["default"])();
-  (0,_service_oneDonutCardsProcessing__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  
+  (0,_service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  (0,_service_oneDonutCardsProcessing__WEBPACK_IMPORTED_MODULE_6__["default"])();
+  (0,_modules_sellectCyti__WEBPACK_IMPORTED_MODULE_4__["default"])();
 
 });
 })();

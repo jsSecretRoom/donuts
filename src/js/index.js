@@ -2,6 +2,7 @@ import sliderSwiper from './modules/slider';
 import chengeDonutBoxSize from './modules/cellRegulator';
 import wishAfterClick from './modules/wishOnBox';
 import closeBoxAnimation from './modules/capOpenCloseAnimation';
+import selectCity from './modules/sellectCyti';
 
 import processAndInsertProductCards  from './service/donutsCardsProcessing';
 import getOneDonutCard from './service/oneDonutCardsProcessing'
@@ -14,6 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
   closeBoxAnimation('.create-ovn-pack', '.cap', '.box-cap', 'animate', 'index', '.back', 'activHiden');
   processAndInsertProductCards();
   getOneDonutCard();
-  
+  selectCity();
 
 });

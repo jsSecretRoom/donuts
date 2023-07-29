@@ -177,32 +177,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function tabFiltr(cards, activeTab) {
-    // Если активный таб - первый таб и popular: true, то происходит фильтрация
-    
+function tabFiltr(cards, activeTab, searchQuery) {
+    if ( searchQuery && searchQuery.trim() !== "") {
+      const lowerCaseSearchQuery = searchQuery.toLowerCase().trim();
+      return cards.filter((card) =>
+        card.name.toLowerCase().includes(lowerCaseSearchQuery)
+      );
+    }
     if (activeTab === 0) {
-        return cards;
+      return cards;
     }
     if (activeTab === 1) {
-        return cards.filter(card => card.popular === true);
+      return cards.filter(card => card.popular === true);
     }
     if (activeTab === 2) {
-        return cards.filter(card => card.newArrival === true);
+      return cards.filter(card => card.newArrival === true);
     }
     if (activeTab === 3) {
-        return cards.filter(card => card.classification === "Fruity");
+      return cards.filter(card => card.classification === "Fruity");
     }
     if (activeTab === 4) {
-        return cards.filter(card => card.classification === "Holiday");
+      return cards.filter(card => card.classification === "Holiday");
     }
     if (activeTab === 5) {
-        return cards.filter(card => card.classification === "Classics");
+      return cards.filter(card => card.classification === "Classics");
     }
-    
-    
-    
+  
     return cards;
-}
+  }
+  
   /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabFiltr);
 
 /***/ }),
@@ -289,32 +292,60 @@ function sliderSwiper(buttonLeft, buttonRight, carousel, slides, wrapper) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   inputActive: () => (/* binding */ inputActive),
+/* harmony export */   tabActive: () => (/* binding */ tabActive)
 /* harmony export */ });
-function tabActive(tabs, callback) {
-    const tabsButons = document.querySelectorAll(tabs);
-    let activeTabIndex = 5; // Инициализируем индекс активного таба
-  
-    tabsButons.forEach((tab, index) => {
-      tab.addEventListener('click', function () {
-        // Удаляем класс активного таба у всех табов
-        tabsButons.forEach(tab => tab.classList.remove('active'));
-  
-        // Добавляем класс активного таба только к тому, на который произошло нажатие
-        this.classList.add('active');
-  
-        // Обновляем индекс активного таба
-        activeTabIndex = index;
-  
-        // Вызываем колбэк, чтобы оповестить об изменении индекса
-        if (typeof callback === 'function') {
-          callback(activeTabIndex);
-        }
-      });
+function tabActive(tabs, callback) { 
+  const tabsButons = document.querySelectorAll(tabs);
+  const searchInput = document.querySelector('.search');
+  let activeTabIndex = 0; // Инициализируем индекс активного таба
+
+  tabsButons.forEach((tab, index) => {
+    tab.addEventListener('click', function () {
+      // Удаляем класс активного таба у всех табов и инпута
+      tabsButons.forEach(tab => tab.classList.remove('active'));
+      searchInput.classList.remove('active'); // Используем переданный searchInput
+
+      // Добавляем класс активного таба только к тому, на который произошло нажатие
+      this.classList.add('active');
+
+      // Обновляем индекс активного таба
+      activeTabIndex = index;
+
+      // Вызываем колбэк, чтобы оповестить об изменении индекса
+      if (typeof callback === 'function') {
+        callback(activeTabIndex);
+      }
     });
-  }
-  
-  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabActive);
+
+    searchInput.addEventListener('click', () => {
+      activeTabIndex = 0;
+      searchInput.classList.add('active');
+      tabsButons.forEach(tab => tab.classList.remove('active'));
+      if (typeof callback === 'function') {
+        callback(activeTabIndex);
+      }
+    });
+  });
+}
+
+function inputActive(inputClass, searchValueColbeck) {
+  const searchInput = document.querySelector(inputClass);
+  let searchQuery = ''; // Изменим на переменную, чтобы можно было менять значение
+
+  searchInput.addEventListener('input', () => {
+    searchQuery = searchInput.value.toLowerCase().trim();
+    if (typeof searchValueColbeck === 'function') {
+      searchValueColbeck(searchQuery);
+    }
+  });
+
+  // Возвращаем searchInput, чтобы его можно было использовать в других функциях
+  return searchInput;
+}
+
+
+
 
 
 
@@ -375,7 +406,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 class ProductCard {
   constructor(product) {
     this.id = product.id;
@@ -397,12 +427,20 @@ class ProductCard {
     let newClass = '';
     if(arrivalOrPopular === 'Popular'){
       newClass = 'active'
+    }else if(arrivalOrPopular === 'New'){
+      newClass = 'active-new'
     }
+    
 
     let newnamelangth = this.name.length;
     let newname = this.name; // Объявляем и инициализируем переменную
     if (newnamelangth >= 33) {
       newname = this.name.slice(0, 33) + '...'; // Присваиваем новое значение переменной
+    }
+    let newDesklangth = this.description.length;
+    let newDesk = this.description; // Объявляем и инициализируем переменную
+    if (newDesklangth >= 50) {
+      newDesk = this.description.slice(0, 55) + '...'; // Присваиваем новое значение переменной
     }
     
     return `
@@ -425,7 +463,7 @@ class ProductCard {
         <div class="product-info">
           <div class="description">
             <p>${this.classification} <span>${newname}</span></p>
-            <p class="desk">${this.description}</p>
+            <p class="desk">${newDesk}</p>
           </div>
           <div class="price">
             <div class="info">
@@ -462,11 +500,16 @@ async function getOneDonutCard() {
       const productCards = data.products.map((product) => new ProductCard(product));
 
       // Используем tabActive с колбэком для отслеживания изменений activeTabIndex
-      (0,_modules_tabsModule__WEBPACK_IMPORTED_MODULE_2__["default"])('.tab-button', (activeTabIndex) => {
-        // Вот здесь вы можете использовать значение activeTabIndex для необходимых действий
-        // Например, перерисовать карточки товаров с учетом активного таба
-        const filterCardS = (0,_modules_filtersCards__WEBPACK_IMPORTED_MODULE_1__["default"])(productCards, activeTabIndex);
+      (0,_modules_tabsModule__WEBPACK_IMPORTED_MODULE_2__.tabActive)('.tab-button', (activeTabIndex) => {
+        const searchQuery = document.querySelector('.search').value.toLowerCase().trim();
+        const filterCardS = (0,_modules_filtersCards__WEBPACK_IMPORTED_MODULE_1__["default"])(productCards, activeTabIndex, searchQuery);
         renderProductCards(filterCardS);
+      });
+      // Поиск карточек в search
+      (0,_modules_tabsModule__WEBPACK_IMPORTED_MODULE_2__.inputActive)('.search', (searchQuery) => {
+        const activeTabIndex = document.querySelector('.tab-button.active')?.dataset.index || 0;
+        const filterCards = (0,_modules_filtersCards__WEBPACK_IMPORTED_MODULE_1__["default"])(productCards, activeTabIndex, searchQuery);
+        renderProductCards(filterCards);
       });
 
       // Выводим карточки товаров для начального активного таба

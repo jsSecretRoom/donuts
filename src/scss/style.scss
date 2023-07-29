@@ -178,10 +178,11 @@ body{
                         justify-content: space-around;
                         align-items: center;
                         border-bottom: 2px solid white;
+                        
                         .search-buttons {
                             display: flex;
                             column-gap: 30px;
-                            .main, .bag, .favorites {
+                            .main, .bag, .favorites, .delivery {
                                 background-color: white;
                                 border-radius: 50px;
                                 position: relative;
@@ -192,7 +193,7 @@ body{
                                     height: 50px;
                                     width: 50px;
                                 }
-                                .coun-of-bay{
+                                .coun-of-bay, .coun-of-favorites{
                                     height: 25px;
                                     width: 25px;
                                     border-radius: 50px;
@@ -216,7 +217,7 @@ body{
                             position: relative;
                             .search-line-continer{
                                 
-                                input{
+                                .search{
                                     color: #541111;
                                     border-radius: 50px;
                                     font-size: 20px;
@@ -228,25 +229,15 @@ body{
                                         color: white;
                                     }
                                 }
+                                .search.active{
+                                    background-color: #4f80e3;
+                                }
                                 .donut-img{
                                     position: absolute;
                                     left: 0;
-                                    
-                                }
-                            }
-                            .find {
-                                color: #541111;
-                                width: 100px;
-                                background-color: #83BECC;
-                                border-radius: 50px;
-                                font-size: 20px;
-                                &:hover{
-                                    background-color: rgb(0, 87, 209);
                                 }
                             }
                         }
-                        
-                        
                     }
                     .adaptiv-lay{
                         .donuts-categories {
@@ -289,6 +280,7 @@ body{
                             background-color: #DBABAB;
                             .wraper-conteiner {
                                 overflow-x: hidden;
+                                overflow-y: hidden;
                                 .wraper {
                                     position: relative;
                                     
@@ -366,7 +358,6 @@ body{
                                                         z-index: 1;
                                                         top: 20px;
                                                         left: 10px;
-                                                        background-color: #2bdf37;
                                                         width: 120px;
                                                         height: 30px;
                                                         border-radius: 50px;
@@ -379,6 +370,9 @@ body{
                                                     }
                                                     .card-info-indicator.active{
                                                         background-color: #df882b;
+                                                    }
+                                                    .card-info-indicator.active-new{
+                                                        background-color: #2bdf37;
                                                     }
                                                     .star-feach{
                                                         position: absolute;
@@ -401,7 +395,10 @@ body{
                                                     border-radius:  0 0 10px 10px;
                                                     padding: 10px;
                                                     width: 300px;
-                                                    height: 155px;
+                                                    height: 170px;
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    flex-direction: column;
                                                     .description {
                                                         
                                                         p{
@@ -442,6 +439,7 @@ body{
                                                                 text-decoration: line-through;
                                                                 text-align: end;
                                                                 padding: 2px;
+                                                                color: rgb(62, 62, 62);
                                                             }
                                                         }
                                                     }
@@ -951,6 +949,7 @@ body{
                                                         .second-price {
                                                             font-size: 20px;
                                                             text-decoration: line-through;
+                                                            color: rgb(62, 62, 62);
                                                         }
                                                     }
                                                     .count-indicator {

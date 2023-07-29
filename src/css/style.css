@@ -186,19 +186,19 @@ body .continer .content-continer main .donuts-shop .search-panel .search-buttons
   -moz-column-gap: 30px;
        column-gap: 30px;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites {
+body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .delivery {
   background-color: white;
   border-radius: 50px;
   position: relative;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main:hover, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag:hover, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites:hover {
+body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main:hover, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag:hover, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites:hover, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .delivery:hover {
   background-color: rgb(0, 87, 209);
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main img, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag img, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites img {
+body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main img, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag img, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites img, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .delivery img {
   height: 50px;
   width: 50px;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main .coun-of-bay, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag .coun-of-bay, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites .coun-of-bay {
+body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main .coun-of-bay, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main .coun-of-favorites, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag .coun-of-bay, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag .coun-of-favorites, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites .coun-of-bay, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites .coun-of-favorites, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .delivery .coun-of-bay, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .delivery .coun-of-favorites {
   height: 25px;
   width: 25px;
   border-radius: 50px;
@@ -210,7 +210,7 @@ body .continer .content-continer main .donuts-shop .search-panel .search-buttons
   align-items: center;
   justify-content: center;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main .coun-of-bay p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag .coun-of-bay p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites .coun-of-bay p {
+body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main .coun-of-bay p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .main .coun-of-favorites p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag .coun-of-bay p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .bag .coun-of-favorites p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites .coun-of-bay p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .favorites .coun-of-favorites p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .delivery .coun-of-bay p, body .continer .content-continer main .donuts-shop .search-panel .search-buttons .delivery .coun-of-favorites p {
   font-size: 15px;
 }
 body .continer .content-continer main .donuts-shop .search-panel .search-line {
@@ -219,7 +219,7 @@ body .continer .content-continer main .donuts-shop .search-panel .search-line {
        column-gap: 10px;
   position: relative;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer input {
+body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer .search {
   color: #541111;
   border-radius: 50px;
   font-size: 20px;
@@ -228,25 +228,18 @@ body .continer .content-continer main .donuts-shop .search-panel .search-line .s
   min-width: 300px;
   background-color: #E3A44F;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer input::-moz-placeholder {
+body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer .search::-moz-placeholder {
   color: white;
 }
-body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer input::placeholder {
+body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer .search::placeholder {
   color: white;
+}
+body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer .search.active {
+  background-color: #4f80e3;
 }
 body .continer .content-continer main .donuts-shop .search-panel .search-line .search-line-continer .donut-img {
   position: absolute;
   left: 0;
-}
-body .continer .content-continer main .donuts-shop .search-panel .search-line .find {
-  color: #541111;
-  width: 100px;
-  background-color: #83BECC;
-  border-radius: 50px;
-  font-size: 20px;
-}
-body .continer .content-continer main .donuts-shop .search-panel .search-line .find:hover {
-  background-color: rgb(0, 87, 209);
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .donuts-categories {
   background-color: #541111;
@@ -288,6 +281,7 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders {
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper {
   position: relative;
@@ -371,7 +365,6 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   z-index: 1;
   top: 20px;
   left: 10px;
-  background-color: #2bdf37;
   width: 120px;
   height: 30px;
   border-radius: 50px;
@@ -384,6 +377,9 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .card-info-indicator.active {
   background-color: #df882b;
+}
+body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .card-info-indicator.active-new {
+  background-color: #2bdf37;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-img .star-feach {
   position: absolute;
@@ -405,7 +401,10 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   border-radius: 0 0 10px 10px;
   padding: 10px;
   width: 300px;
-  height: 155px;
+  height: 170px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid .cards-conteiner .product-info .description p {
   font-size: 20px;
@@ -441,6 +440,7 @@ body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .
   text-decoration: line-through;
   text-align: end;
   padding: 2px;
+  color: rgb(62, 62, 62);
 }
 body .continer .content-continer main .donuts-shop .adaptiv-lay .goods-sliders .wraper-conteiner .wraper .carousel .slid.active-class {
   display: none;
@@ -916,6 +916,7 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .ch
 body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .price .second-price {
   font-size: 20px;
   text-decoration: line-through;
+  color: rgb(62, 62, 62);
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator {
   display: flex;

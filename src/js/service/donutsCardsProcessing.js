@@ -1,7 +1,6 @@
 import DonutsGoodsService from './donutsService';
-
 import tabFiltr from '../modules/filtersCards'
-import tabActive from '../modules/tabsModule'
+import {tabActive, inputActive} from '../modules/tabsModule'
 class ProductCard {
   constructor(product) {
     this.id = product.id;
@@ -23,12 +22,20 @@ class ProductCard {
     let newClass = '';
     if(arrivalOrPopular === 'Popular'){
       newClass = 'active'
+    }else if(arrivalOrPopular === 'New'){
+      newClass = 'active-new'
     }
+    
 
     let newnamelangth = this.name.length;
     let newname = this.name; // Объявляем и инициализируем переменную
     if (newnamelangth >= 33) {
       newname = this.name.slice(0, 33) + '...'; // Присваиваем новое значение переменной
+    }
+    let newDesklangth = this.description.length;
+    let newDesk = this.description; // Объявляем и инициализируем переменную
+    if (newDesklangth >= 50) {
+      newDesk = this.description.slice(0, 55) + '...'; // Присваиваем новое значение переменной
     }
     
     return `
@@ -51,7 +58,7 @@ class ProductCard {
         <div class="product-info">
           <div class="description">
             <p>${this.classification} <span>${newname}</span></p>
-            <p class="desk">${this.description}</p>
+            <p class="desk">${newDesk}</p>
           </div>
           <div class="price">
             <div class="info">
@@ -89,10 +96,15 @@ async function getOneDonutCard() {
 
       // Используем tabActive с колбэком для отслеживания изменений activeTabIndex
       tabActive('.tab-button', (activeTabIndex) => {
-        // Вот здесь вы можете использовать значение activeTabIndex для необходимых действий
-        // Например, перерисовать карточки товаров с учетом активного таба
-        const filterCardS = tabFiltr(productCards, activeTabIndex);
+        const searchQuery = document.querySelector('.search').value.toLowerCase().trim();
+        const filterCardS = tabFiltr(productCards, activeTabIndex, searchQuery);
         renderProductCards(filterCardS);
+      });
+      // Поиск карточек в search
+      inputActive('.search', (searchQuery) => {
+        const activeTabIndex = document.querySelector('.tab-button.active')?.dataset.index || 0;
+        const filterCards = tabFiltr(productCards, activeTabIndex, searchQuery);
+        renderProductCards(filterCards);
       });
 
       // Выводим карточки товаров для начального активного таба

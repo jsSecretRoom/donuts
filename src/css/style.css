@@ -981,7 +981,6 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .ch
 body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .left-count, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .right-count {
   border-radius: 10px;
   border: 1px solid #111f54;
-  background-color: rgba(253, 55, 0, 0.6588235294);
 }
 body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .left-count img, body .continer .content-continer main .donuts-shop .create-set .box-continer .choose-donuts .wraper-conteiner .wraper1 .carousel1 .slid1 .onlu-donut-conteiner .count-indicator .right-count img {
   height: 50px;

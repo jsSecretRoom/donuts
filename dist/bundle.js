@@ -210,6 +210,44 @@ function tabFiltr(cards, activeTab, searchQuery) {
 
 /***/ }),
 
+/***/ "./src/js/modules/priceCalculator.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/priceCalculator.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   handleDonutCounter: () => (/* binding */ handleDonutCounter)
+/* harmony export */ });
+function handleDonutCounter(productCards) {
+    const updateCount = (card, newCount) => {
+        card.setCount(newCount);
+        const countElement = document.querySelector(`#donut-${card.id} .count`); // Изменено: добавлен префикс "donut-"
+        countElement.textContent = newCount;
+    };
+    
+      productCards.forEach((card) => {
+        const leftCountButton = document.querySelector(`#donut-${card.id} .left-count`); // Изменено: добавлен префикс "donut-"
+        const rightCountButton = document.querySelector(`#donut-${card.id} .right-count`); // Изменено: добавлен префикс "donut-"
+  
+        leftCountButton.addEventListener('click', () => {
+            if (card.count > 0) {
+                updateCount(card, card.count - 1);
+            }
+        });
+    
+        rightCountButton.addEventListener('click', () => {
+            updateCount(card, card.count + 1);
+        });
+        
+    });
+}
+
+
+
+/***/ }),
+
 /***/ "./src/js/modules/sellectCyti.js":
 /*!***************************************!*\
   !*** ./src/js/modules/sellectCyti.js ***!
@@ -311,6 +349,24 @@ function sliderSwiper(buttonLeft, buttonRight, carousel, slides, wrapper) {
 
     addClickListener(leftButtons, slideToPrev);
     addClickListener(rightButtons, slideToNext);
+    
+    const updateSlider = () => {
+        const currentSlide = container.querySelector('.slid1');
+        container.style.transition = 'transform 0.5s ease';
+        container.style.transform = `translateX(-${currentSlide.offsetLeft}px)`;
+      
+        setTimeout(() => {
+          for (let i = 0; i < slidesToShow; i++) {
+            container.removeChild(container.querySelector('.slid1'));
+          }
+          container.style.transition = 'none';
+          container.style.transform = 'translateX(0)';
+      
+          // После обновления слайдера, переинициализируем обработчики событий на карточках
+          const productCards = container.querySelectorAll('.slid1');
+          handleDonutCounter(productCards);
+        }, 500);
+    };
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderSwiper);
 
@@ -607,6 +663,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _donutsService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./donutsService */ "./src/js/service/donutsService.js");
+/* harmony import */ var _modules_priceCalculator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/priceCalculator */ "./src/js/modules/priceCalculator.js");
+
 
 
 class OneDonutCard {
@@ -616,27 +674,61 @@ class OneDonutCard {
     this.priceDiscounted = product.price_discounted;
     this.priceOriginal = product.price_original;
     this.photoLink = product.photo_link;
-}
-createCardHTML() {
+    this.count = 0;
+
+
+    this.leftCountButton = document.createElement('button');
+    this.leftCountButton.className = 'left-count';
+    this.leftCountButton.innerHTML = '<img src="./src/icons/Expand_left.svg" alt="">';
+
+    this.rightCountButton = document.createElement('button');
+    this.rightCountButton.className = 'right-count';
+    this.rightCountButton.innerHTML = '<img src="./src/icons/Expand_Right.svg" alt="">';
+
+    this.countElement = document.createElement('div');
+    this.countElement.className = 'count';
+    this.countElement.textContent = this.count;
+
+    // Обработчики клика привязываются здесь к созданным кнопкам
+    this.leftCountButton.addEventListener('click', () => this.updateCount(this.count - 1));
+    this.rightCountButton.addEventListener('click', () => this.updateCount(this.count + 1));
+  }
+
+  setCount(count) {
+    if (typeof count === 'number') {
+      this.count = count;
+      this.countElement.textContent = count;
+    }
+  }
+  updateCount(newCount) {
+    this.count = newCount;
+    this.countElement.textContent = newCount;
+  }
+  updateCount(newCount) {
+    this.setCount(newCount);
+  }
+
+  createCardHTML() {
     return `
-    <div class="slid1" id="${this.id}">
-        <div class="img-one-donut">
+    <div class="slid1" id="donut-${this.id}">
+      <div class="img-one-donut">
         <img src="${this.photoLink}" alt="" id="draggablePhoto1" draggable="true" ondragstart="drag(event)">
-        </div>
-        <div class="onlu-donut-conteiner">
+      </div>
+      <div class="onlu-donut-conteiner">
         <div class="donut-naim">
-            <p>${this.name}</p>
+          <p>${this.name}</p>
         </div>
         <div class="price">
-            <p class="real-price">${ this.priceDiscounted}$</p>
-            <p class="second-price">${this.priceOriginal}$</p>
+          <p class="real-price">${this.priceDiscounted}$</p>
+          <p class="second-price">${this.priceOriginal}$</p>
         </div>
         <div class="count-indicator">
-            <button class="left-count"><img src="./src/icons/Expand_left.svg" alt=""></button>
-            <div class="count">0</div>
-            <button class="right-count"><img src="./src/icons/Expand_Right.svg" alt=""></button>
+          <!-- Вставляем кнопки и элемент для отображения счетчика count -->
+          ${this.leftCountButton.outerHTML}
+          ${this.countElement.outerHTML}
+          ${this.rightCountButton.outerHTML}
         </div>
-        </div>
+      </div>
     </div>
     `;
   }
@@ -655,6 +747,9 @@ async function processAndInsertProductCards() {
 
       const productsContainer = document.querySelector('.carousel1');
       productsContainer.innerHTML = productCardsHTML;
+
+      // Теперь после вставки HTML в DOM, вызываем функцию для обработки событий
+      (0,_modules_priceCalculator__WEBPACK_IMPORTED_MODULE_1__.handleDonutCounter)(productCards);
     }
   } catch (error) {
     console.error(error);
@@ -745,6 +840,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left', '.right', '.carousel', '.slid', '.wraper');
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left1', '.right1', '.carousel1', '.slid1', '.wraper1');
@@ -754,7 +851,6 @@ document.addEventListener('DOMContentLoaded', function () {
   (0,_service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_5__["default"])();
   (0,_service_oneDonutCardsProcessing__WEBPACK_IMPORTED_MODULE_6__["default"])();
   (0,_modules_sellectCyti__WEBPACK_IMPORTED_MODULE_4__["default"])();
-
 });
 })();
 

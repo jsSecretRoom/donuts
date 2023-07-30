@@ -1,4 +1,5 @@
 import DonutsGoodsService from './donutsService';
+import {handleDonutCounter} from '../modules/priceCalculator'
 
 class OneDonutCard {
   constructor(product) {
@@ -7,27 +8,61 @@ class OneDonutCard {
     this.priceDiscounted = product.price_discounted;
     this.priceOriginal = product.price_original;
     this.photoLink = product.photo_link;
-}
-createCardHTML() {
+    this.count = 0;
+
+
+    this.leftCountButton = document.createElement('button');
+    this.leftCountButton.className = 'left-count';
+    this.leftCountButton.innerHTML = '<img src="./src/icons/Expand_left.svg" alt="">';
+
+    this.rightCountButton = document.createElement('button');
+    this.rightCountButton.className = 'right-count';
+    this.rightCountButton.innerHTML = '<img src="./src/icons/Expand_Right.svg" alt="">';
+
+    this.countElement = document.createElement('div');
+    this.countElement.className = 'count';
+    this.countElement.textContent = this.count;
+
+    // Обработчики клика привязываются здесь к созданным кнопкам
+    this.leftCountButton.addEventListener('click', () => this.updateCount(this.count - 1));
+    this.rightCountButton.addEventListener('click', () => this.updateCount(this.count + 1));
+  }
+
+  setCount(count) {
+    if (typeof count === 'number') {
+      this.count = count;
+      this.countElement.textContent = count;
+    }
+  }
+  updateCount(newCount) {
+    this.count = newCount;
+    this.countElement.textContent = newCount;
+  }
+  updateCount(newCount) {
+    this.setCount(newCount);
+  }
+
+  createCardHTML() {
     return `
-    <div class="slid1" id="${this.id}">
-        <div class="img-one-donut">
+    <div class="slid1" id="donut-${this.id}">
+      <div class="img-one-donut">
         <img src="${this.photoLink}" alt="" id="draggablePhoto1" draggable="true" ondragstart="drag(event)">
-        </div>
-        <div class="onlu-donut-conteiner">
+      </div>
+      <div class="onlu-donut-conteiner">
         <div class="donut-naim">
-            <p>${this.name}</p>
+          <p>${this.name}</p>
         </div>
         <div class="price">
-            <p class="real-price">${ this.priceDiscounted}$</p>
-            <p class="second-price">${this.priceOriginal}$</p>
+          <p class="real-price">${this.priceDiscounted}$</p>
+          <p class="second-price">${this.priceOriginal}$</p>
         </div>
         <div class="count-indicator">
-            <button class="left-count"><img src="./src/icons/Expand_left.svg" alt=""></button>
-            <div class="count">0</div>
-            <button class="right-count"><img src="./src/icons/Expand_Right.svg" alt=""></button>
+          <!-- Вставляем кнопки и элемент для отображения счетчика count -->
+          ${this.leftCountButton.outerHTML}
+          ${this.countElement.outerHTML}
+          ${this.rightCountButton.outerHTML}
         </div>
-        </div>
+      </div>
     </div>
     `;
   }
@@ -46,6 +81,9 @@ async function processAndInsertProductCards() {
 
       const productsContainer = document.querySelector('.carousel1');
       productsContainer.innerHTML = productCardsHTML;
+
+      // Теперь после вставки HTML в DOM, вызываем функцию для обработки событий
+      handleDonutCounter(productCards);
     }
   } catch (error) {
     console.error(error);

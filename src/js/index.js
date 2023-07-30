@@ -4,6 +4,8 @@ import wishAfterClick from './modules/wishOnBox';
 import closeBoxAnimation from './modules/capOpenCloseAnimation';
 import selectCity from './modules/sellectCyti';
 
+
+
 import processAndInsertProductCards  from './service/donutsCardsProcessing';
 import getOneDonutCard from './service/oneDonutCardsProcessing'
 
@@ -16,5 +18,4 @@ document.addEventListener('DOMContentLoaded', function () {
   processAndInsertProductCards();
   getOneDonutCard();
   selectCity();
-
 });

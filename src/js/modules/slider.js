@@ -12,12 +12,11 @@ function sliderSwiper(buttonLeft, buttonRight, carousel, slides, wrapper) {
         container.style.transform = `translateX(-${moveWidth}px)`;
 
         setTimeout(function() {
+            // Move the first slides to the end without cloning and removing
             for (let i = 0; i < slidesToShow; i++) {
-                container.appendChild(slideItems[i].cloneNode(true));
+                container.appendChild(slideItems[i]);
             }
-            for (let i = 0; i < slidesToShow; i++) {
-                container.removeChild(slideItems[i]);
-            }
+
             container.style.transition = 'none';
             container.style.transform = 'translateX(0)';
         }, 500);
@@ -29,21 +28,19 @@ function sliderSwiper(buttonLeft, buttonRight, carousel, slides, wrapper) {
         const slidesToShow = 3;
         const moveWidth = slideWidth * slidesToShow;
 
-        for (let i = slideItems.length - 1; i >= slideItems.length - slidesToShow; i--) {
-            const firstSlide = slideItems[0];
-            container.insertBefore(slideItems[i].cloneNode(true), firstSlide);
-        }
-        for (let i = slideItems.length - 1; i >= slideItems.length - slidesToShow; i--) {
-            container.removeChild(slideItems[i]);
-        }
-
-        container.style.transition = 'none';
-        container.style.transform = `translateX(-${moveWidth}px)`;
+        container.style.transition = 'transform 0.5s ease';
+        container.style.transform = `translateX(${moveWidth}px)`;
 
         setTimeout(function() {
-            container.style.transition = 'transform 0.5s ease';
+            // Move the last slides to the beginning without cloning and removing
+            for (let i = slideItems.length - 1; i >= slideItems.length - slidesToShow; i--) {
+                const firstSlide = slideItems[0];
+                container.insertBefore(slideItems[i], firstSlide);
+            }
+
+            container.style.transition = 'none';
             container.style.transform = 'translateX(0)';
-        }, 50);
+        }, 500);
     }
 
     const addClickListener = (buttons, callback) => {
@@ -57,23 +54,6 @@ function sliderSwiper(buttonLeft, buttonRight, carousel, slides, wrapper) {
 
     addClickListener(leftButtons, slideToPrev);
     addClickListener(rightButtons, slideToNext);
-    
-    const updateSlider = () => {
-        const currentSlide = container.querySelector('.slid1');
-        container.style.transition = 'transform 0.5s ease';
-        container.style.transform = `translateX(-${currentSlide.offsetLeft}px)`;
-      
-        setTimeout(() => {
-          for (let i = 0; i < slidesToShow; i++) {
-            container.removeChild(container.querySelector('.slid1'));
-          }
-          container.style.transition = 'none';
-          container.style.transform = 'translateX(0)';
-      
-          // После обновления слайдера, переинициализируем обработчики событий на карточках
-          const productCards = container.querySelectorAll('.slid1');
-          handleDonutCounter(productCards);
-        }, 500);
-    };
 }
+
 export default sliderSwiper;

@@ -1,20 +1,22 @@
-//donuts-cells-regulator
 function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell) {
-    const lineConteiners = document.querySelectorAll(lineConteiner);
-    const buttonsBox = document.querySelectorAll(BtnBox);
-  
-    buttonsBox.forEach(function(button, i) {
-      button.addEventListener('click', function() {
-        // Удаляем класс "active" со всех кнопок перед добавлением его к активной кнопке
+  const lineConteiners = document.querySelectorAll(lineConteiner);
+  const buttonsBox = document.querySelectorAll(BtnBox);
+
+  buttonsBox.forEach(function(button, i) {
+    button.addEventListener('click', function() {
+      // If the clicked button is not the 4th button (index 3), then proceed to change the selection
+      if (i !== 3) {
+        // Remove the "active" class from all buttons
         buttonsBox.forEach(function(btn) {
           btn.classList.remove('active');
         });
-  
-        // Добавляем класс "active" к активной кнопке
+
+        // Add the "active" class to the clicked button
         button.classList.add('active');
-  
-        // Остальная часть вашего кода для применения стилей к элементам
-        const cells = document.querySelectorAll(donutCell);
+      }
+
+      // The rest of your code for applying styles to the elements
+      const cells = document.querySelectorAll(donutCell);
         lineConteiners.forEach(function(line, j) {
           if (i === 0) {
             if (j === 0) {
@@ -82,6 +84,7 @@ function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell
         });
       });
     });
+    buttonsBox[3].classList.add('active');
   }
   
   export default chengeDonutBoxSize;

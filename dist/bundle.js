@@ -77,23 +77,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//donuts-cells-regulator
 function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell) {
-    const lineConteiners = document.querySelectorAll(lineConteiner);
-    const buttonsBox = document.querySelectorAll(BtnBox);
-  
-    buttonsBox.forEach(function(button, i) {
-      button.addEventListener('click', function() {
-        // Удаляем класс "active" со всех кнопок перед добавлением его к активной кнопке
+  const lineConteiners = document.querySelectorAll(lineConteiner);
+  const buttonsBox = document.querySelectorAll(BtnBox);
+
+  buttonsBox.forEach(function(button, i) {
+    button.addEventListener('click', function() {
+      // If the clicked button is not the 4th button (index 3), then proceed to change the selection
+      if (i !== 3) {
+        // Remove the "active" class from all buttons
         buttonsBox.forEach(function(btn) {
           btn.classList.remove('active');
         });
-  
-        // Добавляем класс "active" к активной кнопке
+
+        // Add the "active" class to the clicked button
         button.classList.add('active');
-  
-        // Остальная часть вашего кода для применения стилей к элементам
-        const cells = document.querySelectorAll(donutCell);
+      }
+
+      // The rest of your code for applying styles to the elements
+      const cells = document.querySelectorAll(donutCell);
         lineConteiners.forEach(function(line, j) {
           if (i === 0) {
             if (j === 0) {
@@ -161,6 +163,7 @@ function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell
         });
       });
     });
+    buttonsBox[3].classList.add('active');
   }
   
   /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chengeDonutBoxSize);
@@ -222,27 +225,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function handleDonutCounter(productCards) {
     const updateCount = (card, newCount) => {
-        card.setCount(newCount);
-        const countElement = document.querySelector(`#donut-${card.id} .count`); // Изменено: добавлен префикс "donut-"
-        countElement.textContent = newCount;
+      card.setCount(newCount);
+      const countElement = document.querySelector(`#donut-${card.id} .count`);
+      countElement.textContent = newCount;
+      updateTotalPrice(productCards); // Update the total price whenever a count is changed
     };
-    
-      productCards.forEach((card) => {
-        const leftCountButton = document.querySelector(`#donut-${card.id} .left-count`); // Изменено: добавлен префикс "donut-"
-        const rightCountButton = document.querySelector(`#donut-${card.id} .right-count`); // Изменено: добавлен префикс "donut-"
   
-        leftCountButton.addEventListener('click', () => {
-            if (card.count > 0) {
-                updateCount(card, card.count - 1);
-            }
-        });
-    
-        rightCountButton.addEventListener('click', () => {
-            updateCount(card, card.count + 1);
-        });
-        
+    const updateTotalPrice = (cards) => {
+      const totalPriceElement = document.querySelector('.price-calculator');
+      const totalPrice = cards.reduce((total, card) => {
+        return total + card.count * card.priceDiscounted;
+      }, 0);
+      totalPriceElement.textContent = totalPrice + '$';
+    };
+  
+    productCards.forEach((card) => {
+      const leftCountButton = document.querySelector(`#donut-${card.id} .left-count`);
+      const rightCountButton = document.querySelector(`#donut-${card.id} .right-count`);
+  
+      leftCountButton.addEventListener('click', () => {
+        if (card.count > 0) {
+          updateCount(card, card.count - 1);
+        }
+      });
+  
+      rightCountButton.addEventListener('click', () => {
+        updateCount(card, card.count + 1);
+      });
     });
-}
+  
+    // Initial update of the total price
+    updateTotalPrice(productCards);
+  }
 
 
 
@@ -304,12 +318,11 @@ function sliderSwiper(buttonLeft, buttonRight, carousel, slides, wrapper) {
         container.style.transform = `translateX(-${moveWidth}px)`;
 
         setTimeout(function() {
+            // Move the first slides to the end without cloning and removing
             for (let i = 0; i < slidesToShow; i++) {
-                container.appendChild(slideItems[i].cloneNode(true));
+                container.appendChild(slideItems[i]);
             }
-            for (let i = 0; i < slidesToShow; i++) {
-                container.removeChild(slideItems[i]);
-            }
+
             container.style.transition = 'none';
             container.style.transform = 'translateX(0)';
         }, 500);
@@ -321,21 +334,19 @@ function sliderSwiper(buttonLeft, buttonRight, carousel, slides, wrapper) {
         const slidesToShow = 3;
         const moveWidth = slideWidth * slidesToShow;
 
-        for (let i = slideItems.length - 1; i >= slideItems.length - slidesToShow; i--) {
-            const firstSlide = slideItems[0];
-            container.insertBefore(slideItems[i].cloneNode(true), firstSlide);
-        }
-        for (let i = slideItems.length - 1; i >= slideItems.length - slidesToShow; i--) {
-            container.removeChild(slideItems[i]);
-        }
-
-        container.style.transition = 'none';
-        container.style.transform = `translateX(-${moveWidth}px)`;
+        container.style.transition = 'transform 0.5s ease';
+        container.style.transform = `translateX(${moveWidth}px)`;
 
         setTimeout(function() {
-            container.style.transition = 'transform 0.5s ease';
+            // Move the last slides to the beginning without cloning and removing
+            for (let i = slideItems.length - 1; i >= slideItems.length - slidesToShow; i--) {
+                const firstSlide = slideItems[0];
+                container.insertBefore(slideItems[i], firstSlide);
+            }
+
+            container.style.transition = 'none';
             container.style.transform = 'translateX(0)';
-        }, 50);
+        }, 500);
     }
 
     const addClickListener = (buttons, callback) => {
@@ -349,25 +360,8 @@ function sliderSwiper(buttonLeft, buttonRight, carousel, slides, wrapper) {
 
     addClickListener(leftButtons, slideToPrev);
     addClickListener(rightButtons, slideToNext);
-    
-    const updateSlider = () => {
-        const currentSlide = container.querySelector('.slid1');
-        container.style.transition = 'transform 0.5s ease';
-        container.style.transform = `translateX(-${currentSlide.offsetLeft}px)`;
-      
-        setTimeout(() => {
-          for (let i = 0; i < slidesToShow; i++) {
-            container.removeChild(container.querySelector('.slid1'));
-          }
-          container.style.transition = 'none';
-          container.style.transform = 'translateX(0)';
-      
-          // После обновления слайдера, переинициализируем обработчики событий на карточках
-          const productCards = container.querySelectorAll('.slid1');
-          handleDonutCounter(productCards);
-        }, 500);
-    };
 }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderSwiper);
 
 /***/ }),

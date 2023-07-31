@@ -77,26 +77,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell) {
-  const lineConteiners = document.querySelectorAll(lineConteiner);
-  const buttonsBox = document.querySelectorAll(BtnBox);
+function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell, box) {
+    const lineConteiners = document.querySelectorAll(lineConteiner);
+    const buttonsBox = document.querySelectorAll(BtnBox);
+    const boxConteiner = document.querySelector(box);
 
-  buttonsBox.forEach(function(button, i) {
-    button.addEventListener('click', function() {
-      // If the clicked button is not the 4th button (index 3), then proceed to change the selection
-      if (i !== 3) {
-        // Remove the "active" class from all buttons
+    buttonsBox.forEach(function(button, i) {
+      
+      button.addEventListener('click', function() {
+        
+        boxConteiner.style.display = 'block';
+
+        // Удаляем класс "active" со всех кнопок перед добавлением его к активной кнопке
         buttonsBox.forEach(function(btn) {
           btn.classList.remove('active');
         });
-
-        // Add the "active" class to the clicked button
+  
+        // Добавляем класс "active" к активной кнопке
         button.classList.add('active');
-      }
-
-      // The rest of your code for applying styles to the elements
-      const cells = document.querySelectorAll(donutCell);
+  
+        // Остальная часть вашего кода для применения стилей к элементам
+        const cells = document.querySelectorAll(donutCell);
         lineConteiners.forEach(function(line, j) {
+          
           if (i === 0) {
             if (j === 0) {
               cells.forEach(function(cell, i) {
@@ -163,7 +166,6 @@ function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell
         });
       });
     });
-    buttonsBox[3].classList.add('active');
   }
   
   /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (chengeDonutBoxSize);
@@ -213,6 +215,56 @@ function tabFiltr(cards, activeTab, searchQuery) {
 
 /***/ }),
 
+/***/ "./src/js/modules/maxCellSize.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/maxCellSize.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+
+function handleBoxSizeChange(BtnBox, callback) {
+  const buttonsBox = document.querySelectorAll(BtnBox);
+
+  buttonsBox.forEach(function(button, i) {
+    button.addEventListener('click', function() {
+      let maxDonuts = 16; // Максимальное количество пончиков по умолчанию
+      
+      // Если нажата кнопка не с номером 4 (индекс 3), то изменяем выбор размера коробки
+      if (i !== 3) {
+        // Удаляем класс "active" со всех кнопок
+        buttonsBox.forEach(function(btn) {
+          btn.classList.remove('active');
+        });
+    
+        // Добавляем класс "active" к нажатой кнопке
+        buttonsBox[i].classList.add('active');
+    
+        // Обновляем максимальное количество пончиков на основе выбранного размера коробки
+        if (i === 0) {
+          maxDonuts = 6;
+        } else if (i === 1) {
+          maxDonuts = 9;
+        } else if (i === 2) {
+          maxDonuts = 12;
+        }
+      } else {
+        // Для кнопки с номером 4 (индекс 3) всегда устанавливаем максимальное количество пончиков равным 16
+        maxDonuts = 16;
+      }
+
+      // Вызываем переданный обратный вызов (callback) и передаем ему максимальное количество пончиков
+      callback(maxDonuts);
+    });
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (handleBoxSizeChange);
+
+/***/ }),
+
 /***/ "./src/js/modules/priceCalculator.js":
 /*!*******************************************!*\
   !*** ./src/js/modules/priceCalculator.js ***!
@@ -223,7 +275,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   handleDonutCounter: () => (/* binding */ handleDonutCounter)
 /* harmony export */ });
+/* harmony import */ var _maxCellSize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./maxCellSize */ "./src/js/modules/maxCellSize.js");
+
 function handleDonutCounter(productCards) {
+  (0,_maxCellSize__WEBPACK_IMPORTED_MODULE_0__["default"])('.choose', (maxDonuts) =>{
+
+    console.log(maxDonuts);
+    
     const updateCount = (card, newCount) => {
       card.setCount(newCount);
       const countElement = document.querySelector(`#donut-${card.id} .count`);
@@ -256,7 +314,9 @@ function handleDonutCounter(productCards) {
   
     // Initial update of the total price
     updateTotalPrice(productCards);
-  }
+  });
+    
+}
 
 
 
@@ -839,7 +899,7 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener('DOMContentLoaded', function () {
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left', '.right', '.carousel', '.slid', '.wraper');
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_0__["default"])('.left1', '.right1', '.carousel1', '.slid1', '.wraper1');
-  (0,_modules_cellRegulator__WEBPACK_IMPORTED_MODULE_1__["default"])('.line-conteiner', '.choose', 'hide-donuts-conteiner', '.donut-cell4', 'hide-donut-cell');
+  (0,_modules_cellRegulator__WEBPACK_IMPORTED_MODULE_1__["default"])('.line-conteiner', '.choose', 'hide-donuts-conteiner', '.donut-cell4', 'hide-donut-cell', '.box-continer');
   (0,_modules_wishOnBox__WEBPACK_IMPORTED_MODULE_2__["default"])('.create-ovn-pack', '.wish');
   (0,_modules_capOpenCloseAnimation__WEBPACK_IMPORTED_MODULE_3__["default"])('.create-ovn-pack', '.cap', '.box-cap', 'animate', 'index', '.back', 'activHiden');
   (0,_service_donutsCardsProcessing__WEBPACK_IMPORTED_MODULE_5__["default"])();

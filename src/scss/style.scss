@@ -589,11 +589,12 @@ body{
                             justify-content: space-between;
                             padding: 0 55px;
                             .offer {
-                                text-align: center;
                                 display: flex;
                                 flex-direction: column;
-                                justify-content: center;
+                                justify-content: center; 
+                                
                                 p{
+
                                     color: white;
                                     font-size: 70px;
                                 }
@@ -601,7 +602,7 @@ body{
                             .choose-box {
                                 display: flex;
                                 justify-content: space-between;
-                                padding: 0 85px;
+                                padding: 0 35px;
                                 .choose{
                                     width: 100px;
                                     height: 150px;
@@ -622,11 +623,13 @@ body{
                         .box-continer {
                             background: url("../img/bacground/2.svg") no-repeat center center ;
                             background-size: cover;
+                            display: none;
                             .box {
                                 width: 100%;
                                 height: 650px;
                                 display: flex;
                                 justify-content: space-between;
+                                
                                 .donuts-box {
                                     position: relative;
                                     margin: 50px 0 0 50px;
@@ -995,7 +998,7 @@ body{
                                                     justify-content: space-around;
                                                     flex-direction: column;
                                                     padding: 5px;
-                                                    height: 140px;
+                                                    height: 150px;
                                                     .donut-naim{
                                                         p{
                                                             font-size: 20px;
@@ -1055,7 +1058,7 @@ body{
                     border-bottom: 1px solid white;
                     height: 330px;
                     width: 1440px;
-                    background: linear-gradient(to bottom, #541111, #541149);
+                    background: linear-gradient(to bottom, #B50E99, #541111 );
                     display: flex;
                     justify-content: space-around;
                     align-items: center;
@@ -1125,7 +1128,7 @@ body{
                 .info-conpany {
                     display: flex;
                     justify-content: space-around;
-                    background: linear-gradient(to bottom, #541149, #541111);
+                    background: #541111;
                     .column{
                         flex: 1;
                         height: 140px;

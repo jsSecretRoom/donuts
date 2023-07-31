@@ -1,23 +1,26 @@
-function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell) {
-  const lineConteiners = document.querySelectorAll(lineConteiner);
-  const buttonsBox = document.querySelectorAll(BtnBox);
+function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell, box) {
+    const lineConteiners = document.querySelectorAll(lineConteiner);
+    const buttonsBox = document.querySelectorAll(BtnBox);
+    const boxConteiner = document.querySelector(box);
 
-  buttonsBox.forEach(function(button, i) {
-    button.addEventListener('click', function() {
-      // If the clicked button is not the 4th button (index 3), then proceed to change the selection
-      if (i !== 3) {
-        // Remove the "active" class from all buttons
+    buttonsBox.forEach(function(button, i) {
+      
+      button.addEventListener('click', function() {
+        
+        boxConteiner.style.display = 'block';
+
+        // Удаляем класс "active" со всех кнопок перед добавлением его к активной кнопке
         buttonsBox.forEach(function(btn) {
           btn.classList.remove('active');
         });
-
-        // Add the "active" class to the clicked button
+  
+        // Добавляем класс "active" к активной кнопке
         button.classList.add('active');
-      }
-
-      // The rest of your code for applying styles to the elements
-      const cells = document.querySelectorAll(donutCell);
+  
+        // Остальная часть вашего кода для применения стилей к элементам
+        const cells = document.querySelectorAll(donutCell);
         lineConteiners.forEach(function(line, j) {
+          
           if (i === 0) {
             if (j === 0) {
               cells.forEach(function(cell, i) {
@@ -84,7 +87,6 @@ function chengeDonutBoxSize(lineConteiner, BtnBox, hideLine, donutCell, hideCell
         });
       });
     });
-    buttonsBox[3].classList.add('active');
   }
   
   export default chengeDonutBoxSize;

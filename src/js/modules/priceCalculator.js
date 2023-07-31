@@ -1,4 +1,9 @@
+import handleBoxSizeChange from './maxCellSize'
 export function handleDonutCounter(productCards) {
+  handleBoxSizeChange('.choose', (maxDonuts) =>{
+
+    console.log(maxDonuts);
+    
     const updateCount = (card, newCount) => {
       card.setCount(newCount);
       const countElement = document.querySelector(`#donut-${card.id} .count`);
@@ -31,5 +36,7 @@ export function handleDonutCounter(productCards) {
   
     // Initial update of the total price
     updateTotalPrice(productCards);
-  }
+  });
+    
+}
 

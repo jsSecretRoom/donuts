@@ -10,6 +10,5 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     watch: true,
-    devtool: "source-map",
     module: {}
 };

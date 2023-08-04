@@ -77,6 +77,7 @@ async function processAndInsertProductCards() {
       console.error("Data is null, check the request and file contents.");
     } else {
       const productCards = data.oneDonut.map((product) => new OneDonutCard(product));
+      
       const productCardsHTML = productCards.map((card) => card.createCardHTML()).join('');
 
       const productsContainer = document.querySelector('.carousel1');

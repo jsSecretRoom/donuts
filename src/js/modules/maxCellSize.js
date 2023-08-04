@@ -4,6 +4,7 @@ function handleBoxSizeChange(BtnBox, callback) {
 
   buttonsBox.forEach(function(button, i) {
     button.addEventListener('click', function() {
+
       let maxDonuts = 16; // Максимальное количество пончиков по умолчанию
       
       // Если нажата кнопка не с номером 4 (индекс 3), то изменяем выбор размера коробки
@@ -27,6 +28,7 @@ function handleBoxSizeChange(BtnBox, callback) {
       } else {
         // Для кнопки с номером 4 (индекс 3) всегда устанавливаем максимальное количество пончиков равным 16
         maxDonuts = 16;
+
       }
 
       // Вызываем переданный обратный вызов (callback) и передаем ему максимальное количество пончиков

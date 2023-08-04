@@ -677,9 +677,7 @@ body .continer .content-continer main .donuts-shop .create-set .box-continer .bo
   width: 170px;
   transform: rotateX(-30deg);
   position: absolute;
-  background-color: rgba(201, 76, 215, 0.9725490196);
   border-radius: 20px;
-  border: 2px solid black;
   transition: transform 0.3s ease;
   cursor: pointer;
 }

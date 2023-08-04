@@ -534,7 +534,7 @@ body{
                                     color: rgb(52, 85, 255);
                                 }
                             }
-                            .bag-img{
+                            .bag{
                                 background: white;
                                 border-radius: 50px;
                                 position: relative;
@@ -1148,5 +1148,96 @@ body{
                 }
             }
         }
+
+
+
+        .bag-pop-up-windov {
+            position:fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #5411458a;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            display: none;
+            .pop-up-continer {
+                background-color: #541111;
+                width: 1460px;
+                height: 100%;
+                display: flex;
+                padding: 40px;
+                .goods-window {
+                    flex-grow:1;
+                    .donuts-sets {
+                    }
+                    .recomendation {
+                    }
+                }
+                .order {
+                    display: flex;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    
+                    .form-continer {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        form {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            align-items: center;
+                            padding: 20px;
+                            .location, .naim, .phone-number{
+                                input{
+                                    height: 35px;
+                                    width: 300px;
+                                    margin: 10px 0;
+                                    padding: 0 10px;
+                                    font-size: 20px; 
+                                    border-radius: 50px;
+                                    box-shadow: -5px 12px 3px 0px rgba(0, 0, 0, 0.50);
+                                    border: 1px solid #000;
+                                    &::placeholder{
+                                        color: #000;
+                                    }
+                                }
+                                
+                            }
+                            .order-more{
+                                height: 50px;
+                                width: 300px;
+                                background-color: #a910dc;
+                                
+                                border-radius: 50px;
+                                border: 1px solid #000;
+                                background: #C52139;
+                                box-shadow: -5px 12px 3px 0px rgba(0, 0, 0, 0.50);
+                                font-size: 40px;
+                                color: rgb(0, 94, 234);
+                                &:hover{
+                                    background: #680110;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                    .price{
+
+                        .cost {
+                            p{
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .bag-pop-up-windov.show{
+            display: block;
+        }
+
     }
 }

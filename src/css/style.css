@@ -1085,7 +1085,7 @@ body .continer .bag-pop-up-windov {
   width: 100%;
   height: 100%;
   background-color: rgba(84, 17, 69, 0.5411764706);
-  z-index: 2;
+  z-index: 7;
   display: flex;
   justify-content: center;
   display: none;
@@ -1096,19 +1096,54 @@ body .continer .bag-pop-up-windov .pop-up-continer {
   height: 100%;
   display: flex;
   padding: 40px;
+  height: 100%;
 }
 body .continer .bag-pop-up-windov .pop-up-continer .goods-window {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ee7d1b;
+  border-radius: 10px 0 0 10px;
+  position: relative;
+}
+body .continer .bag-pop-up-windov .pop-up-continer .goods-window button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+}
+body .continer .bag-pop-up-windov .pop-up-continer .goods-window button img {
+  width: 70px;
+  height: 70px;
+}
+body .continer .bag-pop-up-windov .pop-up-continer .goods-window button:hover {
+  background-color: #C52139;
+  border-radius: 10px;
+}
+body .continer .bag-pop-up-windov .pop-up-continer .goods-window .donuts-sets {
+  flex-grow: 1;
+}
+body .continer .bag-pop-up-windov .pop-up-continer .goods-window .donuts-sets p {
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+}
+body .continer .bag-pop-up-windov .pop-up-continer .goods-window .recomendation {
+  background-color: cornflowerblue;
+  height: 200px;
+  border-radius: 0 0 0 10px;
 }
 body .continer .bag-pop-up-windov .pop-up-continer .order {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  background-color: #215dc5;
+  border-radius: 0 10px 10px 0;
 }
 body .continer .bag-pop-up-windov .pop-up-continer .order .form-continer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-direction: column;
 }
 body .continer .bag-pop-up-windov .pop-up-continer .order .form-continer form {
   display: flex;
@@ -1148,6 +1183,6 @@ body .continer .bag-pop-up-windov .pop-up-continer .order .form-continer form .o
   background: #680110;
   color: white;
 }
-body .continer .bag-pop-up-windov.show {
-  display: block;
+body .continer .bag-pop-up-windov.active {
+  display: flex;
 }

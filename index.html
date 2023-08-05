@@ -9,7 +9,7 @@
   <script src="./dist/bundle.js" defer></script>
 </head>
 <body>
-  <div class="continer">
+  <div class="continer" id="section3">
     <div class="content-continer">
       <header>
         <nav>
@@ -26,8 +26,8 @@
               <a href="#">Philadelphia</a>
             </div>
           </div>
-          <a href="">ORDER</a>
-          <a href="">CREATE A SET</a>
+          <a href="#section1">ORDER</a>
+          <a href="#section2">CREATE A SET</a>
         </nav>
         <div class="logo">
           <p >Divine</p>
@@ -37,7 +37,7 @@
       <main>
         <div class="animations">
           <div class="order-block">
-            <a href="">Order now!</a>
+            <a href="#section1">Order now!</a>
           </div>
           <div class="rotate-wrapper">
             <div class="rotait">
@@ -90,7 +90,7 @@
           </div>
         </div>
 
-        <div class="donuts-shop">
+        <div class="donuts-shop" id="section1">
 
           <div class="search-panel">
             <div class="search-buttons">
@@ -168,7 +168,7 @@
             </div>
           </div>
 
-          <div class="create-set">
+          <div class="create-set" id="section2">
             <div class="create">
               <div class="offer">
                 <p>OR CREATE YOUR SET:</p>
@@ -278,9 +278,9 @@
       <footer>
         <div class="navigation">
           <nav>
-            <a href="">HOME</a>
-            <a href="">ORDER</a>
-            <a href="">CREATE A SET</a>
+            <a href="#section3">HOME</a>
+            <a href="#section1">ORDER</a>
+            <a href="#section2">CREATE A SET</a>
           </nav>
           <div class="logo">
             <p >Divine</p>
@@ -311,7 +311,13 @@
     <div class="bag-pop-up-windov">
       <div class="pop-up-continer">
         <div class="goods-window">
-          <div class="donuts-sets"></div>
+          <button id="back"><img src="./src/icons/Expand_left.svg" alt=""></button>
+          <div class="donuts-sets">
+            <p>you order:</p>
+            <div class="sets">
+
+            </div>
+          </div>
           <div class="recomendation"></div>
         </div>
         <div class="order">
@@ -328,11 +334,11 @@
               </div>
               <input class="order-more" type="submit" value="ORDER">
             </form> 
-          </div>
-          <div class="price">
-            <div class="cost">
-              <p>you paid:</p>
-              <p>000</p>
+            <div class="price">
+              <div class="cost">
+                <p>you paid:</p>
+                <p>000</p>
+              </div>
             </div>
           </div>
         </div>

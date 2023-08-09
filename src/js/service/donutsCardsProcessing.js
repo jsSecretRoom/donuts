@@ -50,7 +50,7 @@ class ProductCard {
           <div class="card-info-indicator ${newClass}">
             <p>${arrivalOrPopular}</p>
           </div>
-          <button class="star-feach">
+          <button class="star-feach" id="${this.id}">
             <img  src="./src/icons/Star_light.svg" alt="">
           </button>
         </div>
